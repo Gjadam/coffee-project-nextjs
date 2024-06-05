@@ -43,6 +43,9 @@ export default function Tabs({ product }) {
                 icon: "success",
                 buttons: "فبول"
             })
+            setUsername('')
+            setEmail('')
+            setBody('')
         }
     }
 
@@ -96,7 +99,7 @@ export default function Tabs({ product }) {
                                     {[...Array(5)].map((star, i) => {
                                         const ratingValue = i + 1
                                         return (
-                                            <label >
+                                            <label key={i} >
                                                 <input type="radio" name="rating" value={ratingValue} onClick={() => setScore(ratingValue)} className="hidden" />
                                                 <FaStar
                                                     className={` ${ratingValue <= (hoverRateIcon || score) ? 'text-yellow-400' : 'text-zinc-300'} active:text-yellow-300 text-xl mb-1 cursor-pointer transition-all duration-200`}
@@ -108,10 +111,10 @@ export default function Tabs({ product }) {
                                     })}
                                 </div>
                                 <div className=" flex flex-col gap-5">
-                                    <FormInput type={'textarea'} placeholder={'دیدگاه شما'} onChange={(e) => setBody(e.target.value)} />
+                                    <FormInput type={'textarea'} placeholder={'دیدگاه شما'} onChange={(e) => setBody(e.target.value)} value={body} />
                                     <div className=" flex justify-center items-center flex-col md:flex-row gap-5">
-                                        <FormInput type={'text'} placeholder={'نام'} onChange={(e) => setUsername(e.target.value)} />
-                                        <FormInput type={'email'} placeholder={'ایمیل'} onChange={(e) => setEmail(e.target.value)} />
+                                        <FormInput type={'text'} placeholder={'نام'} onChange={(e) => setUsername(e.target.value)} value={username} />
+                                        <FormInput type={'email'} placeholder={'ایمیل'} onChange={(e) => setEmail(e.target.value)} value={email} />
                                     </div>
                                     <div className="">
                                         <input id="wp-comment-cookies-consent" name="wp-comment-cookies-consent" type="checkbox" />
