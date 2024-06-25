@@ -1,11 +1,11 @@
 
 // Components
 import Link from 'next/link'
-import Button from './components/modules/Button/Button'
-import NavBar from './components/modules/NavBar/NavBar'
+import Button from '../components/modules/Button/Button'
+import NavBar from '../components/modules/NavBar/NavBar'
 
 // Authorization
-import { authUser } from '@/utils/auth'
+import { authUser } from '@/utils/serverHelpers'
 
 export default async function NotFound() {
 

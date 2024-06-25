@@ -1,18 +1,18 @@
 // Components
-import Footer from "./components/modules/Footer/Footer";
-import NavBar from "./components/modules/NavBar/NavBar";
-import Header from "./components/templates/Index//Header/Header";
-import AllProducts from "./components/templates/Index/AllProducts/AllProducts";
-import CounterBanner from "./components/templates/Index/CounterBanner/CounterBanner";
-import InfiniteLogos from "./components/templates/Index/InfiniteLogos/InfiniteLogos";
-import OfferBanner from "./components/templates/Index/OfferBanner/OfferBanner";
-import ProductsBanner from "./components/templates/Index/ProductsBanner/ProductsBanner";
-import Promote from "./components/templates/Index/Promote/Promote";
-import ReporterBanner from "./components/templates/Index/ReporterBanner/ReporterBanner";
-import SimpleBanner from "./components/templates/Index/SimpleBanner/SimpleBanner";
+import Footer from '@/components/modules/Footer/Footer'
+import NavBar from '@/components/modules/NavBar/NavBar'
+import AllProducts from '@/components/templates/index/AllProducts/AllProducts'
+import CounterBanner from '@/components/templates/index/CounterBanner/CounterBanner'
+import Header from '@/components/templates/index/Header/Header'
+import InfiniteLogos from '@/components/templates/index/InfiniteLogos/InfiniteLogos'
+import OfferBanner from '@/components/templates/index/OfferBanner/OfferBanner'
+import ProductsBanner from '@/components/templates/index/ProductsBanner/ProductsBanner'
+import Promote from '@/components/templates/index/Promote/Promote'
+import ReporterBanner from '@/components/templates/index/ReporterBanner/ReporterBanner'
+import SimpleBanner from '@/components/templates/index/SimpleBanner/SimpleBanner'
 
 // Authorization
-import { authUser } from "@/utils/auth";
+import { authUser } from '@/utils/serverHelpers'
 
 
 export default async function Home() {
