@@ -30,7 +30,7 @@ export default function ScrollToTop() {
 
 
   return (
-    <div className={`fixed left-7 ${showScrollToTop ? ' bottom-7  visible opacity-100 ' : '-bottom-20 invisible opacity-0 '}  z-50 text-2xl p-2 rounded  bg-primary hover:bg-secondary hover:text-white transition-all duration-300 cursor-pointer `} onClick={scrollToTop}>
+    <div className={`fixed left-7 ${showScrollToTop ? ' bottom-7  visible opacity-100 ' : '-bottom-20 invisible opacity-0 '}  z-50 text-2xl p-2 rounded-md hover:rounded-none  bg-primary hover:bg-secondary hover:text-white transition-all duration-300 cursor-pointer `} onClick={scrollToTop}>
       <IoIosArrowUp />
     </div>
   )
