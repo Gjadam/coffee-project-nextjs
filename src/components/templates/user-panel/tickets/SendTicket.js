@@ -1,6 +1,7 @@
 "use client"
 import React, { useEffect, useState } from 'react'
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 
 // Components
 import Button from '@/components/modules/Button/Button'
@@ -10,6 +11,8 @@ import FormInput from '@/components/modules/FormInput/FormInput'
 import Swal from 'sweetalert2'
 
 export default function SendTicket() {
+
+  const router = useRouter()
 
   const [title, setTitle] = useState("")
   const [body, setBody] = useState("")
@@ -64,7 +67,7 @@ export default function SendTicket() {
         confirmButtonText: "مشاهده تیکت ها"
       }).then(result => {
         if (result.isConfirmed) {
-          location.replace("/p-user/tickets")
+          router.replace("/p-user/tickets")
         }
       })
     }

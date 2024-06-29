@@ -15,18 +15,21 @@ export default function Tickets({ tickets }) {
         </Link>
       </div>
       <div className=" mt-5">
-        <div className=" bg-white text-secondary rounded-2xl p-5">
-
         {
-          tickets ? (
-            tickets.map(ticket => (
-              <Cart key={ticket._id} title={ticket.title} date={ticket.createdAt} condition={ticket.hasAccept} support={ticket.department.title} />
-            ))
+          tickets.length > 0 ? (
+            <div className=" bg-white text-secondary rounded-2xl p-5">
+              {
+                tickets.map(ticket => (
+                  <Link href={`/p-user/tickets/answer/${ticket._id}`}>
+                    <Cart key={ticket._id} title={ticket.title} date={ticket.createdAt} condition={ticket.hasAccept} support={ticket.department.title} />
+                  </Link>
+                ))
+              }
+            </div>
           ) : (
-            <Alert title={"تیکتی وجود ندارد"} text={"هنوز هیچ تیکتی به پشتیبانی ارسال نکرده اید!"} buttonText={'ارسال تیکت جدید'} route={'/p-user/tickets/send-ticket'}/>
+            <Alert title={"تیکتی وجود ندارد"} text={"هنوز هیچ تیکتی به پشتیبانی ارسال نکرده اید!"} buttonText={'ارسال تیکت جدید'} route={'/p-user/tickets/send-ticket'} />
           )
         }
-        </div>
       </div>
     </div>
   )
