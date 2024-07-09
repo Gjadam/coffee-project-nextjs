@@ -14,10 +14,10 @@ export default function Tickets({ tickets }) {
           <Button type={'simple'} text={"ارسال تیکت جدید"} />
         </Link>
       </div>
-      <div className=" mt-5">
+      <div className=" mt-5 p-5 bg-white text-secondary rounded-2xl">
         {
           tickets.length > 0 ? (
-            <div className=" bg-white text-secondary rounded-2xl p-5">
+            <div className="">
               {
                 tickets.map(ticket => (
                   <Link href={`/p-user/tickets/answer/${ticket._id}`}>

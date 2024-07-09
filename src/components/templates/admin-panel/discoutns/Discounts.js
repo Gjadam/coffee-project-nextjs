@@ -10,7 +10,7 @@ export default function Discounts({ discounts }) {
             <div className="">
                 <SectionHeader title={"کدهای تخفیف"} />
             </div>
-            <div className="flex justify-center items-center gap-10 flex-col w-full bg-white rounded-xl p-4">
+            <div className="flex justify-center items-center gap-10 flex-col w-full bg-white rounded-xl p-4 overflow-x-auto">
             <AddDiscount />
             <div className=" w-full border-t-1 pt-3">
                 {

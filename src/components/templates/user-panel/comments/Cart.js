@@ -15,7 +15,7 @@ export default function Cart({ _id, body, score, productID, isAccept, date }) {
         })
     }
     return (
-        <div className=" flex justify-between items-center gap-10 w-full overflow-x-auto hover:bg-gray-100 rounded-lg p-3 transition-colors">
+        <div className=" flex justify-between items-center gap-10 w-full hover:bg-gray-100 rounded-lg p-3 transition-colors">
             <span className=' max-w-44 min-w-44 text-center'>{_id}</span>
             <span className=' max-w-44 min-w-44 text-center'>{productID.name}</span>
             <span className='flex justify-center items-center max-w-24 min-w-24 text-center'>

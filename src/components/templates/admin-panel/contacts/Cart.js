@@ -42,7 +42,7 @@ export default function Cart({ _id, name, email, message }) {
     }
 
     return (
-        <div className=" flex justify-between items-center gap-10 w-full overflow-x-auto hover:bg-gray-100 rounded-lg p-3 transition-colors">
+        <div className=" flex justify-between items-center gap-10 w-full hover:bg-gray-100 rounded-lg p-3 transition-colors">
             <span className=' max-w-44 min-w-44 text-center'>{name}</span>
             <span className=' max-w-44 min-w-44 text-center'>{email}</span>
             <div className=" flex justify-center items-center gap-5 text-sm">

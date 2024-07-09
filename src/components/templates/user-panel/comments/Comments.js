@@ -10,7 +10,7 @@ export default function Comments({comments}) {
             <div className="">
                 <SectionHeader title={"کامنت ها"} />
             </div>
-            <div className="flex justify-center items-center gap-5 flex-col w-full bg-white rounded-xl p-4">
+            <div className="flex justify-center items-center gap-5 flex-col w-full bg-white rounded-xl p-4 overflow-x-auto">
                 {
                     comments.length > 0 ? (
                         comments.map((comment) => (

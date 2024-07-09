@@ -34,7 +34,7 @@ export default function Cart({ _id, code, percent, maxUse, uses }) {
     }
 
     return (
-        <div className=" flex justify-between items-center gap-10 w-full overflow-x-auto hover:bg-gray-100 rounded-lg p-3 transition-colors">
+        <div className=" flex justify-between items-center gap-10 w-full hover:bg-gray-100 rounded-lg p-3 transition-colors">
             <span className={`${uses === maxUse ? "bg-zinc-400" : "bg-green-500"}  text-white text-xs min-w-24 p-2 mr-2  rounded-md text-center`}>{uses === maxUse ? "منقضی شده" : "قابل استفاده"}</span>
             <span className=' bg-teal-500 text-white px-4 py-1 mr-2  rounded-md max-w-44 min-w-44 text-center'>{code}</span>
             <span className=' max-w-44 min-w-44 text-center'>

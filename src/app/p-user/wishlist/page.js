@@ -27,7 +27,9 @@ export default async function User_wishlist() {
                             <ProductBox key={wish._id} productID={wish.product._id} name={wish.product.name} price={wish.product.price} img={wish.product.img} />
                         ))
                     ) : (
-                        <Alert title={'لیست علاقه مندی ها خالیه!!!'}  text={'شما هنوز هیچ محصولی در لیست علاقه مندی های خود ندارید! در صفحه "فروشگاه" محصولات جالب زیادی پیدا خواهید کرد.'} route={'/'} />
+                        <div className=" p-5 bg-white text-secondary rounded-2xl w-full">
+                            <Alert title={'لیست علاقه مندی ها خالیه!!!'}  text={'شما هنوز هیچ محصولی در لیست علاقه مندی های خود ندارید! در صفحه "فروشگاه" محصولات جالب زیادی پیدا خواهید کرد.'} route={'/'} />
+                        </div>
                     )
                 }
             </div>

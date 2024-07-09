@@ -15,7 +15,6 @@ export default function Users({users}) {
                     <UserBox key={user._id} {...user}/>
                 ))
             }
-
         </div>
     </div>
   )

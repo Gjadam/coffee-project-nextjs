@@ -149,7 +149,7 @@ export default function Cart({ _id, username, email, body, score, isAccept, prod
     }
 
     return (
-        <div className=" flex justify-between items-center gap-10 w-full overflow-x-auto hover:bg-gray-100 rounded-lg p-3 transition-colors">
+        <div className=" flex justify-between items-center gap-10 w-full hover:bg-gray-100 rounded-lg p-3 transition-colors">
             <span className={`text-white min-w-24 text-center p-2 rounded-md text-sm ${isAccept ? 'bg-green-500' : "bg-zinc-400"}`} >
                 {
                     isAccept ? "تایید شده" : "در انتظار تایید"

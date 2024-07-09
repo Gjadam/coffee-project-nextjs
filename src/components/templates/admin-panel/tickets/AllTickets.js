@@ -10,7 +10,7 @@ export default function AllTickets({tickets}) {
             <div className="">
                 <SectionHeader title={"تیکت ها"} />
             </div>
-            <div className="flex justify-center items-center gap-5 flex-col w-full bg-white rounded-xl p-4">
+            <div className="flex justify-center items-center gap-5 flex-col w-full bg-white rounded-xl p-4 overflow-x-auto">
                 {
                     tickets.length > 0 ? (
                         tickets.map((ticket) => (

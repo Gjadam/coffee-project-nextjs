@@ -88,7 +88,7 @@ export default function Cart({ _id, user, title, body, department, subDepartment
     }
 
     return (
-        <div className=" flex justify-between items-center gap-10 w-full overflow-x-auto hover:bg-gray-100 rounded-lg p-3 transition-colors">
+        <div className=" flex justify-between items-center gap-10 w-full  hover:bg-gray-100 rounded-lg p-3 transition-colors">
             <span className={` min-w-24 flex justify-center items-center text-center text-2xl rounded-md cursor-pointer`}>{
                 priority === 3 ? <FcHighPriority /> : priority === 2 ? <FcMediumPriority /> : <FcLowPriority />
             }</span>

@@ -14,7 +14,7 @@ export default function Comments({ products }) {
             </div>
             <div className="flex justify-center items-center gap-10 flex-col w-full bg-white rounded-xl p-4">
                 <AddProduct />
-                <div className="flex justify-center items-center gap-5 flex-col w-full bg-white rounded-xl p-4 ">
+                <div className="flex justify-center items-center gap-5 flex-col w-full bg-white rounded-xl p-4 overflow-x-auto ">
                     <div className=" w-full border-t-1 pt-3">
                         {
                             products.length > 0 ? (
