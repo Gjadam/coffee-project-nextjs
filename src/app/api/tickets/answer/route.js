@@ -9,6 +9,13 @@ export async function POST(req) {
         const { title, body, department, subDepartment, priority, ticketID } = reqBody
         const user = await authUser()
 
+        if (!title || !body || !department || !subDepartment || !priority || !ticketID) {
+            return Response.json(
+                { message: "title or body or department or subDepartment or priority or ticketID not found !" },
+                { status: 404 }
+            )
+        }
+
         await TicketModel.findOneAndUpdate(
             { _id: ticketID },
             {

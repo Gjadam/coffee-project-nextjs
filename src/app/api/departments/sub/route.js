@@ -9,6 +9,13 @@ export async function POST(req) {
             department,
         } = body
 
+        if(!title || !department) {
+            return Response.json(
+                {message: "Title of subDepartment or department not found !"},
+                {status: 404}
+            )
+        }
+
         await SubDepartmentModel.create({ title, department })
 
         return Response.json(

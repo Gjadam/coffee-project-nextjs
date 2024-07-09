@@ -61,6 +61,13 @@ export async function DELETE(req) {
         const body = await req.json()
         const { id } = body
 
+        if(!id) {
+            return Response.json(
+                {message: "Comment id not found !"},
+                {status: 404}
+            )
+        }
+
         await CommentModel.findOneAndDelete({ _id: id })
 
         return Response.json({ message: "Comment deleted successfully." })

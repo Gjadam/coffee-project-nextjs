@@ -6,6 +6,13 @@ export async function POST(req) {
         const body = await req.json()
         const { phone, email } = body
 
+        if (!phone || !email) {
+            return Response.json(
+                { message: "Phone or email not found !" },
+                { status: 404 }
+            )
+        }
+
         await BanModel.create({ phone, email })
 
         return Response.json(

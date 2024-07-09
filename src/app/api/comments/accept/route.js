@@ -14,6 +14,14 @@ export async function PUT(req) {
         const body = await req.json()
         const { id } = body
 
+        if(!id) {
+            return Response.json(
+                {message: "Comment id not found !"},
+                {status: 404}
+            )
+        }
+
+
         await CommentModel.findOneAndUpdate(
             { _id: id },
             {

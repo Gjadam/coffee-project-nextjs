@@ -6,6 +6,13 @@ export async function POST(req) {
         const body = await req.json()
         const { title } = body
 
+        if(!title) {
+            return Response.json(
+                {message: "Title of department not found !"},
+                {status: 404}
+            )
+        }
+
         await DepartmentModel.create({ title })
 
         return Response.json(

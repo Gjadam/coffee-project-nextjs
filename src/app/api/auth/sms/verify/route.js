@@ -8,6 +8,14 @@ export async function POST(req) {
   connectToDB();
   const body = await req.json();
   const { phone, code } = body;
+
+  if (!phone || !code) {
+    return Response.json(
+        {message: "Phone number or verify code not found !"},
+        {status: 404}
+    )
+}
+
   const email = `${phone}@gmail.com`
 
   const otp = await OtpModel.findOne({ phone, code });

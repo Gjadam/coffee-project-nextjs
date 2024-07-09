@@ -7,6 +7,13 @@ export async function POST(req) {
         const body = await req.json();
         const { code, percent, maxUse } = body;
 
+        if(!code || !percent || !maxUse) {
+            return Response.json(
+                {message: "Code or percent or maxUse not found !"},
+                {status: 404}
+            )
+        }
+
         await DiscountModel.create({
             code,
             percent,

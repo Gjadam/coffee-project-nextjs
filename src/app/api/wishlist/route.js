@@ -10,6 +10,13 @@ export async function POST(req) {
             product,
         } = body
 
+        if (!user || !product) {
+            return Response.json(
+                { message: "User or product not found !" },
+                { status: 404 }
+            )
+        }
+
         const wish = await WishListModel.findOne({ user, product })
 
         if (!wish) {

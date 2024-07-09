@@ -15,6 +15,14 @@ export async function POST(req) {
             priority,
         } = reqBody
 
+        if (!title || !body || !department || !subDepartment || !priority) {
+            return Response.json(
+                { message: "title or body or department or subDepartment or priority not found !" },
+                { status: 404 }
+            )
+        }
+
+
         await TicketModel.create({
             title,
             body,

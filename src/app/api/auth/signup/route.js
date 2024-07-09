@@ -3,17 +3,21 @@ import UserModel from "@/models/User"
 import { generateAccessToken, hashPassword } from "@/utils/auth";
 import { roles } from "@/utils/constants";
 
-export async function POST (req) {
+export async function POST(req) {
     connectToDB()
     const body = await req.json();
     const { name, phone, email, password } = body
 
-    // validation
+    if (!name || !phone || !email || !password ) {
+        return Response.json(
+            {message: "Name or phone or email or password not found !"},
+            {status: 404}
+        )
+    }
 
-
-    const isUserExist = await UserModel.findOne({
-        $or: [{ name }, { email }, { phone }]
-    })
+        const isUserExist = await UserModel.findOne({
+            $or: [{ name }, { email }, { phone }]
+        })
 
     if (isUserExist) {
         return Response.json({

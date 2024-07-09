@@ -18,6 +18,13 @@ export async function POST(req) {
       const tags = formData.get("tags");
       const img = formData.get("img");
   
+      if(!name || !price || !shortDescription || !longDescription || !weight || !suitableFor || !smell || !tags || !img) {
+        return Response.json(
+            {message: "Name or price or shortDescription or longDescription or weight or suitableFor or smell or tags or img not found !"},
+            {status: 404}
+        )
+    }
+
       const buffer = Buffer.from(await img.arrayBuffer());
       const filename = Date.now() + img.name;
       const imgPath = path.join(process.cwd(), "public/uploads/" + filename);

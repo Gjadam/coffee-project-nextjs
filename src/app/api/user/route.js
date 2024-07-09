@@ -8,6 +8,13 @@ export async function POST(req) {
         const body = await req.json()
         const { name, email, phone } = body
 
+        if (!name || !email || !phone ) {
+            return Response.json(
+                { message: "Name or email or phone number not found !" },
+                { status: 404 }
+            )
+        }
+
         await UserModel.findOneAndUpdate(
             { _id: user._id },
             {

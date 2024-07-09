@@ -14,7 +14,13 @@ export async function POST(req) {
     const body = await req.json();
     const { email, password } = body;
 
-    // Validation
+    if (!email || !password) {
+      return Response.json(
+        { message: "Email or password not found !" },
+        { status: 404 }
+      )
+    }
+
     const isValidEmail = validateEmail(email);
     const isValidPassword = validatePassword(password);
 

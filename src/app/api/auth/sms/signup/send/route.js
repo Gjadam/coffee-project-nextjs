@@ -8,6 +8,13 @@ export async function POST(req) {
         const body = await req.json()
         const { phone } = body
 
+        if (!phone) {
+            return Response.json(
+                {message: "Phone number not found !"},
+                {status: 404}
+            )
+        }
+
         const now = new Date()
         const expTime = now.getTime() + 300_000
 
