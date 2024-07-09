@@ -3,25 +3,29 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --turbo",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
+    "aos": "^2.3.4",
     "autoprefixer": "10.4.19",
-    "aos": "^3.0.0-beta.6",
+    "bcryptjs": "^2.4.3",
+    "formik": "^2.4.6",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.4.0",
     "next": "13.4.0",
-    "leaflet": "^1.9.4",
-    "react-leaflet": "^4.2.1",
-    "react-icons": "^4.12.0",
-    "react-select": "^5.8.0",
-    "recharts": "^2.10.3",
-    "sweetalert": "^2.1.2",
-    "swiper": "^11.0.4",
     "postcss": "8.4.38",
     "react": "18.3.1",
     "react-dom": "18.3.1",
+    "react-icons": "^4.12.0",
+    "react-infinite-logo-slider": "^1.0.13",
+    "react-leaflet": "^4.2.1",
+    "react-select": "^5.8.0",
+    "recharts": "^2.12.7",
+    "sweetalert2": "^11.11.1",
+    "swiper": "^11.0.4",
     "tailwindcss": "3.4.3"
   }
 }
