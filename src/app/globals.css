@@ -2,26 +2,63 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  font-family: 'Reyhaneh';
+  cursor: none;
+}
+
+/* Webkit scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 2px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #241f1c;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Swiper */
+.swiper-button-prev,
+.swiper-button-next {
+  transform: scale(0.7);
+  -webkit-transform: scale(0.7);
+  -moz-transform: scale(0.7);
+  -ms-transform: scale(0.7);
+  -o-transform: scale(0.7);
+}
+
+/* Sweet Alert */
+.swal2-popup {
+  border-radius: 1rem;
+  -webkit-border-radius: 1rem;
+  -moz-border-radius: 1rem;
+  -ms-border-radius: 1rem;
+  -o-border-radius: 1rem;
+}
+
+.swal2-title {
+  font-size: 1.5rem;
+}
+
+.swal2-confirm {
+  background-color: #be9c79 !important;
+}
+
+.swal2-cancel {
+  background-color: #1c1c1c !important;
+}
+
+.swal2-deny {
+  background-color: #1c1c1c !important;
+}
+
+.swal2-timer-progress-bar {
+  background-color: #1c1c1c !important;
 }
