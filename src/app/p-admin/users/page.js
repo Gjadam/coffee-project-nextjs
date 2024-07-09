@@ -5,7 +5,7 @@ import AllUsers from '@/components/templates/admin-panel/users/Users'
 
 // Backend
 import connectToDB from '@/configs/db'
-const UserModel = require('@/models/User')
+import UserModel from '@/models/User'
 
 export default async function Users() {
 
