@@ -21,7 +21,7 @@ export default function Tickets({ tickets }) {
               {
                 tickets.map(ticket => (
                   <Link href={`/p-user/tickets/answer/${ticket._id}`}>
-                    <Cart key={ticket._id} title={ticket.title} date={ticket.createdAt} condition={ticket.hasAccept} support={ticket.department.title} />
+                    <Cart key={ticket._id} title={ticket.title} date={ticket.createdAt} condition={ticket.hasAnswer} support={ticket.department.title} />
                   </Link>
                 ))
               }

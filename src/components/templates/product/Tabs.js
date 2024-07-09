@@ -1,5 +1,5 @@
 'use client'
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 // Components
 import Comment from "../../modules/Comment/Comment"
@@ -16,13 +16,32 @@ export default function Tabs({ product }) {
 
     const [activeTab, setActiveTab] = useState('desc')
     const [hoverRateIcon, setHoverRateIcon] = useState(null)
+    const [isSaveUserInfo, setIsSaveUserInfo] = useState(false)
 
     const [username, setUsername] = useState('')
     const [email, setEmail] = useState('')
     const [body, setBody] = useState('')
-    const [score, setScore] = useState(0)
+    const [score, setScore] = useState(1)
+
+
+    useEffect(() => {
+        const userInfos = JSON.parse(localStorage.getItem("userInfo"))
+        if(userInfos) {
+            setUsername(userInfos.username)
+            setEmail(userInfos.email)
+        }
+    }, [])
+
 
     const submitComment = async () => {
+
+        if(isSaveUserInfo) {
+            const userInfo = {
+                username,
+                email
+            }
+            localStorage.setItem("userInfo", JSON.stringify(userInfo))
+        }
 
         const commentData = {
             username,
@@ -119,8 +138,8 @@ export default function Tabs({ product }) {
                                         <FormInput type={'email'} placeholder={'ایمیل'} onChange={(e) => setEmail(e.target.value)} value={email} />
                                     </div>
                                     <div className="">
-                                        <input id="wp-comment-cookies-consent" name="wp-comment-cookies-consent" type="checkbox" />
-                                        <label for="wp-comment-cookies-consent" className=" mr-2">ذخیره نام، ایمیل و وبسایت من در مرورگر برای زمانی که دوباره دیدگاهی می‌نویسم.</label>
+                                        <input id="wp-comment-cookies-consent" name="wp-comment-cookies-consent" type="checkbox" value={isSaveUserInfo} onChange={() => setIsSaveUserInfo(!isSaveUserInfo)} />
+                                        <label for="wp-comment-cookies-consent" className=" mr-2">ذخیره نام و ایمیل من در مرورگر برای زمانی که دوباره دیدگاهی می‌نویسم.</label>
                                     </div>
                                     <Button text={'ثبت دیدگاه'} onClick={submitComment} />
                                 </div>

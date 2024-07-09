@@ -22,7 +22,7 @@ export default function Header() {
                     width={200}
                     height={100}
                 ></Image>
-                <p className=" opacity-70 md:text-xl max-w-[35rem]">اگر متنی ساختگی و بدون معنی است که برای امتحان فونت و یا پر کردن فضا در یک طراحی گرافیکی و یا صنعت چاپ استفاده میشود</p>
+                <p className=" opacity-70 md:text-xl max-w-[35rem]">"جادوی قهوه را در هر لحظه از زندگی تان تجربه کنید."</p>
                 <Button text={'فروشگاه'} type={'outline'} />
             </div>
             <svg className=' absolute right-0 left-0 bottom-0 fill-white' viewBox="0 0 500 150" preserveAspectRatio='none' width="100%" height="150">

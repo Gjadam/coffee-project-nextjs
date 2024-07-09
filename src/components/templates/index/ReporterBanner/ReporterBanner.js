@@ -7,7 +7,7 @@ export default function ReporterBanner() {
     return (
         <div className=" w-full p-24 relative flex justify-center items-center snap-center  bg-[url('/images/jpg/landing-bg2.jpg')] bg-cover bg-no-repeat">
             <div className="flex justify-center items-center flex-col gap-5 text-center">
-                <SectionHeader title={'خبرنگار قهوه'} />
+                <SectionHeader title={'خبرنگار قهوه'} text={"با خبرنگار قهوه وبسایت ما، به دنیایی از اخبار، نکات و تجربیات جذاب در دنیای قهوه دسترسی داشته باشید."}/>
                 <div data-aos='fade-up' className="flex justify-center items-center flex-wrap gap-24 mt-10">
                     <HeraldBox imgUrl={'/images/jpg/herald1.jpg'} title={'تکنیک های آماده سازی'} />
                     <HeraldBox imgUrl={'/images/jpg/herald2.jpg'} title={'تکنیک های آماده سازی'} />

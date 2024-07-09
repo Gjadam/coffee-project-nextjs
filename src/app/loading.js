@@ -1,11 +1,11 @@
 
 // Components
-import Loading from './components/modules/Loading/Loading'
+import Loading from '../components/modules/Loading/Loading'
 
 export default function loading() {
     return (
-        <>
-        <Loading/>
-        </>
+        <div className='w-full h-screen'>
+            <Loading />
+        </div>
     )
 }

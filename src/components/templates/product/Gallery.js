@@ -1,10 +1,10 @@
 import Image from 'next/image'
 
-export default function Gallery() {
+export default function Gallery({img}) {
     return (
         <div className=" w-full md:w-1/2">
             <Image
-                src={'/images/jpg/product2.jpg'}
+                src={img}
                 alt='product'
                 width={600}
                 height={0}

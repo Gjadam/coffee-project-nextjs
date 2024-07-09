@@ -12,6 +12,9 @@ export default async function AllProducts() {
 
     connectToDB()
     const products = await ProductModel.find({})
+        .sort({ _id: -1 })
+        .limit(8)
+        .lean()
     const allProducts = JSON.parse(JSON.stringify(products))
 
 
