@@ -1,9 +1,9 @@
 'use client'
 import { useState } from "react"
 // Components
-import Login from "../components/templates/login-register/Login"
+import Login from "../../components/templates/login-register/Login"
 import { authTypes } from "@/utils/constants"
-import Register from "../components/templates/login-register/Register"
+import Register from "../../components/templates/login-register/Register"
 
 function Login_register() {
 

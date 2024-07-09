@@ -1,9 +1,9 @@
 import Link from 'next/link'
 
 // Components
-import RegisterFormTitle from '../components/modules/RegisterFormTitle/RegisterFormTitle'
-import FormInput from '../components/modules/FormInput/FormInput'
-import Button from '../components/modules/Button/Button'
+import RegisterFormTitle from '../../components/modules/RegisterFormTitle/RegisterFormTitle'
+import FormInput from '../../components/modules/FormInput/FormInput'
+import Button from '../../components/modules/Button/Button'
 
 export default function Forget_password() {
   return (

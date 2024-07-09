@@ -1,17 +1,17 @@
 
 // Components
-import CategoryHeader from '@/app/components/modules/CategoryHeader/CategoryHeader'
-import NavBar from '@/app/components/modules/NavBar/NavBar'
-import Footer from '@/app/components/modules/Footer/Footer'
-import Details from '@/app/components/templates/product/Details'
-import Gallery from '@/app/components/templates/product/Gallery'
-import Tabs from '@/app/components/templates/product/Tabs'
-import MoreProducts from '@/app/components/templates/product/MoreProducts'
+import CategoryHeader from '@/components/modules/CategoryHeader/CategoryHeader'
+import NavBar from '@/components/modules/NavBar/NavBar'
+import Footer from '@/components/modules/Footer/Footer'
+import Details from '@/components/templates/product/Details'
+import Gallery from '@/components/templates/product/Gallery'
+import Tabs from '@/components/templates/product/Tabs'
+import MoreProducts from '@/components/templates/product/MoreProducts'
 
 // Backend
 import connectToDB from '@/configs/db'
 import ProductModel from '@/models/Product'
-import { authUser } from '@/utils/auth'
+import { authUser } from '@/utils/serverHelpers'
 
 export default async function Product({ params }) {
     
@@ -29,7 +29,7 @@ export default async function Product({ params }) {
             <CategoryHeader title={'فروشگاه'} />
             <div className=" container mx-auto my-28">
                 <div className=" flex justify-start items-start flex-col md:flex-row gap-10 p-10 ">
-                    <Gallery />
+                    <Gallery img={JSON.parse(JSON.stringify(product)).img} />
                     <Details product={JSON.parse(JSON.stringify(product))} userID={user ? user._id : null} />
                 </div>
                     <Tabs product={JSON.parse(JSON.stringify(product))} />
