@@ -17,7 +17,6 @@ import { authUser } from '@/utils/serverHelpers'
 import connectToDB from '@/configs/db'
 import TicketModel from '@/models/Ticket'
 import CommentModel from '@/models/Comment'
-import TicketModel from '@/models/Ticket'
 import WishlistModel from '@/models/Wishlist'
 
 
