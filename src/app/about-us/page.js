@@ -12,6 +12,10 @@ import Footer from '../../components/modules/Footer/Footer'
 // Backend
 import { authUser } from '@/utils/serverHelpers'
 
+export const metadata = {
+  title: 'باریستا |  درباره ما',
+}
+
 async function AboutUs() {
 
   const user = await authUser()

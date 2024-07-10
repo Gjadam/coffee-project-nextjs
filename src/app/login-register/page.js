@@ -5,7 +5,11 @@ import Login from "../../components/templates/login-register/Login"
 import { authTypes } from "@/utils/constants"
 import Register from "../../components/templates/login-register/Register"
 
-function Login_register() {
+export const metadata = {
+  title: 'باریستا | ورود / ثبتنام',
+}
+
+export default function Login_register() {
 
   const [authType, setAuthType] = useState(authTypes.LOGIN)
 
@@ -37,5 +41,3 @@ function Login_register() {
     </div>
   )
 }
-
-export default Login_register

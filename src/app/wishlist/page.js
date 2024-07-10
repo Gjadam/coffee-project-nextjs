@@ -16,6 +16,10 @@ import ProductBox from '../../components/modules/ProductBox/ProductBox';
 import SectionHeader from '../../components/modules/SectionHeader/SectionHeader';
 import Alert from '@/components/modules/Alert/Alert';
 
+export const metadata = {
+    title: 'باریستا | علاقه مندی ها',
+  }
+
 export default async function Wishlist() {
 
     connectToDB()

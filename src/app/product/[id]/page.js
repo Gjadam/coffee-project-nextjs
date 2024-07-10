@@ -13,6 +13,10 @@ import connectToDB from '@/configs/db'
 import ProductModel from '@/models/Product'
 import { authUser } from '@/utils/serverHelpers'
 
+export const metadata = {
+    title: 'باریستا | فروشگاه ',
+  }
+
 export default async function Product({ params }) {
     
     connectToDB()

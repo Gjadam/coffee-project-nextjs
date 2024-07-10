@@ -10,7 +10,9 @@ import Footer from '../../components/modules/Footer/Footer'
 // Backend
 import { authUser } from '@/utils/serverHelpers'
 
-// Icons
+export const metadata = {
+    title: 'باریستا |  درباره من',
+  }
 
 export default async function About_me() {
 

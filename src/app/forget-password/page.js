@@ -5,6 +5,10 @@ import RegisterFormTitle from '../../components/modules/RegisterFormTitle/Regist
 import FormInput from '../../components/modules/FormInput/FormInput'
 import Button from '../../components/modules/Button/Button'
 
+export const metadata = {
+  title: 'باریستا | بازیابی رمز عبور',
+}
+
 export default function Forget_password() {
   return (
     <div className=' flex gap-5 w-full h-screen  overflow-hidden '>

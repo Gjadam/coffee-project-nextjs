@@ -9,6 +9,10 @@ import Cart from "@/components/templates/cart/Cart";
 import connectToDB from "@/configs/db";
 import { authUser } from "@/utils/serverHelpers";
 
+export const metadata = {
+    title: 'باریستا | سبد خرید',
+  }
+
 export default async function page() {
 
     connectToDB()

@@ -9,6 +9,10 @@ import Information from '../../components/templates/index/Contact-us/Information
 // Backend
 import { authUser } from '@/utils/serverHelpers'
 
+export const metadata = {
+    title: 'باریستا |  ارتباط با ما',
+  }
+
 export default async function Contact_us() {
 
     const user = await authUser()
