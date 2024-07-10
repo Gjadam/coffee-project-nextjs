@@ -24,6 +24,15 @@ export default function Sms({ phone, showLoginWithOtp, backToFirstPageName }) {
         }
     }
 
+    function otpBackSpace(e) {
+        if (e.key === "Backspace") {
+            let previousInput = e.target.previousSibling
+        if(previousInput) {
+            previousInput.focus()
+        }
+        }
+    }
+
     const verifyCode = async () => {
         const body = { phone: `0${phone}`, code: otp.join("") }
         const res = await fetch('/api/auth/sms/verify', {
@@ -71,6 +80,7 @@ export default function Sms({ phone, showLoginWithOtp, backToFirstPageName }) {
                                 maxLength={1}
                                 className=' outline-none border-1 rounded-2xl  focus:border-primary focus:rounded-none transition-all duration-300  w-16 h-14  text-3xl text-center'
                                 onChange={(e) => otpOnchange(e, i)}
+                                onKeyUp={otpBackSpace}
                             />
                         ))
                     }
