@@ -7,7 +7,6 @@ const nextConfig = {
   images: {
     domains: ['localhost'],
   },
-  webpack5: false,
 }
 
 module.exports = nextConfig
