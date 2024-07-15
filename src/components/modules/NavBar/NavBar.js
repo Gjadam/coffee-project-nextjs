@@ -98,7 +98,7 @@ export default function NavBar({ isLogin }) {
                                         <span>ثبت نام</span>
                                     </div>
                                 </div>
-                                <div className="flex xl:hidden p-2 rounded-full bg-primary hover:bg-secondary text-white transition-colors duration-200 cursor-pointer">
+                                <div className="flex xl:hidden p-2 rounded-full bg-primary hover:bg-secondary text-white transition-colors duration-200 ">
                                     <CiLogin className=' text-2xl ' />
                                 </div>
                             </Link>
@@ -194,11 +194,11 @@ export default function NavBar({ isLogin }) {
                             <a href="https://t.me/Thegjad">
                                 <FaTelegram className=' hover:text-primary transition-colors duration-200' />
                             </a>
-                            <FaTwitter className=' hover:text-primary transition-colors duration-200 cursor-pointer' />
+                            <FaTwitter className=' hover:text-primary transition-colors duration-200' />
                         </div>
                     </div>
                 </div>
-                <div className="flex xl:hidden p-2 rounded-full bg-primary hover:bg-secondary text-white transition-colors duration-200 cursor-pointer" onClick={() => setOpenSideBar(true)}>
+                <div className="flex xl:hidden p-2 rounded-full bg-primary hover:bg-secondary text-white transition-colors duration-200" onClick={() => setOpenSideBar(true)}>
                     <HiBars3 className="text-2xl" />
                 </div>
             </div>

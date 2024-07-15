@@ -121,9 +121,9 @@ export default function Details({ product, userID }) {
                     <div className="" onClick={addToWishlist}>
                         {
                             isActiveWishlist ? (
-                                <FaHeart className=' text-lg text-red-600 hover:text-zinc-500 transition-colors cursor-pointer' />
+                                <FaHeart className=' text-lg text-red-600 hover:text-zinc-500 transition-colors ' />
                             ) : (
-                                <FaRegHeart className=' text-lg text-zinc-600 hover:text-red-500 transition-colors cursor-pointer' />
+                                <FaRegHeart className=' text-lg text-zinc-600 hover:text-red-500 transition-colors ' />
                             )
                         }
                     </div>
@@ -135,10 +135,10 @@ export default function Details({ product, userID }) {
             </div>
             <div className="">
                 <Tag tagKey='اشتراک گذاری' >
-                    <FaTwitter className=' text-zinc-600 hover:text-primary transition-colors duration-300 cursor-pointer text-lg' />
-                    <FaInstagram className=' text-zinc-600 hover:text-primary transition-colors duration-300 cursor-pointer text-lg' />
-                    <FaTelegram className=' text-zinc-600 hover:text-primary transition-colors duration-300 cursor-pointer text-lg' />
-                    <FaFacebook className=' text-zinc-600 hover:text-primary transition-colors duration-300 cursor-pointer text-lg' />
+                    <FaTwitter className=' text-zinc-600 hover:text-primary transition-colors duration-300  text-lg' />
+                    <FaInstagram className=' text-zinc-600 hover:text-primary transition-colors duration-300  text-lg' />
+                    <FaTelegram className=' text-zinc-600 hover:text-primary transition-colors duration-300 text-lg' />
+                    <FaFacebook className=' text-zinc-600 hover:text-primary transition-colors duration-300 text-lg' />
                 </Tag>
             </div>
         </div>

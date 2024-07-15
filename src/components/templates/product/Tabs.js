@@ -73,9 +73,9 @@ export default function Tabs({ product }) {
     return (
         <div className='flex justify-center items-center flex-col gap-8 border-y-1 py-20'>
             <div className=" flex text-center text-sm md:text-xl relative after:absolute after:w-full after:h-0.5 after:bottom-0 after:left-0 after:bg-zinc-300 after:-z-10">
-                <span className={`pb-4 md:pb-2 px-10  border-b-2 ${activeTab === 'desc' && 'text-primary border-primary'} hover:border-b-primary hover:text-primary  cursor-pointer transition-colors duration-300 `} onClick={() => setActiveTab('desc')}>توضیحات</span>
-                <span className={`pb-4 md:pb-2 px-10  border-b-2 ${activeTab === 'info' && 'text-primary border-primary'} hover:border-b-primary hover:text-primary  cursor-pointer transition-colors duration-300 relative after:absolute after:left-0 after:h-8 after:w-0.5 after:bg-zinc-300 before:absolute before:right-0 before:h-8 before:w-0.5 before:bg-zinc-300  `} onClick={() => setActiveTab('info')}>اطلاعات بیشتر</span>
-                <span className={`pb-4 md:pb-2 px-10  border-b-2 ${activeTab === 'review' && 'text-primary border-primary'}  hover:text-primary   hover:border-b-primary  cursor-pointer transition-colors duration-300 `} onClick={() => setActiveTab('review')}>نظرات ({product.comments.filter(comment => comment.isAccept).length})</span>
+                <span className={`pb-4 md:pb-2 px-10  border-b-2 ${activeTab === 'desc' && 'text-primary border-primary'} hover:border-b-primary hover:text-primary transition-colors duration-300 `} onClick={() => setActiveTab('desc')}>توضیحات</span>
+                <span className={`pb-4 md:pb-2 px-10  border-b-2 ${activeTab === 'info' && 'text-primary border-primary'} hover:border-b-primary hover:text-primary transition-colors duration-300 relative after:absolute after:left-0 after:h-8 after:w-0.5 after:bg-zinc-300 before:absolute before:right-0 before:h-8 before:w-0.5 before:bg-zinc-300  `} onClick={() => setActiveTab('info')}>اطلاعات بیشتر</span>
+                <span className={`pb-4 md:pb-2 px-10  border-b-2 ${activeTab === 'review' && 'text-primary border-primary'}  hover:text-primary   hover:border-b-primary transition-colors duration-300 `} onClick={() => setActiveTab('review')}>نظرات ({product.comments.filter(comment => comment.isAccept).length})</span>
             </div>
             <div className=" w-full p-10">
                 {
@@ -123,7 +123,7 @@ export default function Tabs({ product }) {
                                             <label key={i} >
                                                 <input type="radio" name="rating" value={ratingValue} onClick={() => setScore(ratingValue)} className="hidden" />
                                                 <FaStar
-                                                    className={` ${ratingValue <= (hoverRateIcon || score) ? 'text-yellow-400' : 'text-zinc-300'} active:text-yellow-300 text-xl mb-1 cursor-pointer transition-all duration-200`}
+                                                    className={` ${ratingValue <= (hoverRateIcon || score) ? 'text-yellow-400' : 'text-zinc-300'} active:text-yellow-300 text-xl mb-1 transition-all duration-200`}
                                                     onMouseEnter={() => setHoverRateIcon(ratingValue)}
                                                     onMouseLeave={() => setHoverRateIcon(null)}
                                                 />

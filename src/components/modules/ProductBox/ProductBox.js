@@ -32,7 +32,7 @@ export default async function ProductBox({ _id, name, price, shortDescription, s
                 </div>
                 <div className=" flex justify-between items-center w-full">
                     <div className=" flex justify-center items-center gap-3">
-                        <div className=" bg-zinc-100 text-zinc-600 p-3 rounded-full cursor-pointer hover:bg-primary hover:text-white transition-colors ">
+                        <div className=" bg-zinc-100 text-zinc-600 p-3 rounded-full hover:bg-primary hover:text-white transition-colors ">
                             <HiOutlineShoppingCart />
                         </div>
                         <AddToWishlist productID={_id} />

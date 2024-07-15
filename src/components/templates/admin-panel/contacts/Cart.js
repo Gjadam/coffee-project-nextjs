@@ -46,8 +46,8 @@ export default function Cart({ _id, name, email, message }) {
             <span className=' max-w-44 min-w-44 text-center'>{name}</span>
             <span className=' max-w-44 min-w-44 text-center'>{email}</span>
             <div className=" flex justify-center items-center gap-5 text-sm">
-                <span className=' bg-sky-500 text-white min-w-20 text-center p-2  rounded-md cursor-pointer' onClick={showContactBody}>مشاهده</span>
-                <span className=' bg-red-500 text-white min-w-20 text-center p-2  rounded-md cursor-pointer' onClick={deleteContact}>حذف</span>
+                <span className=' bg-sky-500 text-white min-w-20 text-center p-2  rounded-md ' onClick={showContactBody}>مشاهده</span>
+                <span className=' bg-red-500 text-white min-w-20 text-center p-2  rounded-md ' onClick={deleteContact}>حذف</span>
             </div>
         </div >
     )

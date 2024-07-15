@@ -190,22 +190,22 @@ export default function UserBox({ _id, name, email, role, phone }) {
                 <span className='text-xs text-zinc-500'>گزینه ها</span>
                 <div className=" flex justify-center items-center gap-5">
                     <abbr title="حذف">
-                        <div className="  text-red-600 cursor-pointer" onClick={deleteUser}>
+                        <div className="  text-red-600 " onClick={deleteUser}>
                             <IoTrash />
                         </div>
                     </abbr>
                     <abbr title="تغییر سطح">
-                        <div className=" text-base  text-sky-600 cursor-pointer" onClick={changeRole}>
+                        <div className=" text-base  text-sky-600 " onClick={changeRole}>
                             <FaArrowsRotate />
                         </div>
                     </abbr>
                     <abbr title="ویرایش">
-                        <div className="  text-green-600 cursor-pointer" onClick={editUser}>
+                        <div className="  text-green-600 " onClick={editUser}>
                             <MdEdit />
                         </div>
                     </abbr>
                     <abbr title="بن">
-                        <div className="  text-zinc-600 cursor-pointer" onClick={banUser}>
+                        <div className="  text-zinc-600 " onClick={banUser}>
                             <IoBan />
                         </div>
                     </abbr>

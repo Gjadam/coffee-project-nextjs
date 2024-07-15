@@ -172,17 +172,17 @@ export default function Cart({ _id, username, email, body, score, isAccept, prod
                         new Date(date).toLocaleDateString("fa-IR")
                     }
                 </span>
-                <span className=' bg-sky-500 text-white min-w-20 text-center p-2  rounded-md cursor-pointer' onClick={showCommentBody}>مشاهده</span>
-                <span className=' bg-red-500 text-white min-w-20 text-center p-2  rounded-md cursor-pointer' onClick={deleteComment}>حذف</span>
+                <span className=' bg-sky-500 text-white min-w-20 text-center p-2  rounded-md ' onClick={showCommentBody}>مشاهده</span>
+                <span className=' bg-red-500 text-white min-w-20 text-center p-2  rounded-md ' onClick={deleteComment}>حذف</span>
                 {
                     isAccept ? (
-                        <span className=' bg-rose-500 text-white min-w-20 text-center p-2  rounded-md cursor-pointer' onClick={rejectComment}>رد</span>
+                        <span className=' bg-rose-500 text-white min-w-20 text-center p-2  rounded-md ' onClick={rejectComment}>رد</span>
                     ) : (
-                        <span className=' bg-blue-500 text-white min-w-20 text-center p-2  rounded-md cursor-pointer' onClick={acceptComment}>تایید</span>
+                        <span className=' bg-blue-500 text-white min-w-20 text-center p-2  rounded-md ' onClick={acceptComment}>تایید</span>
                     )
                 }
-                <span className=' bg-primary text-white min-w-20 text-center p-2  rounded-md cursor-pointer' >پاسخ</span>
-                <span className=' bg-gray-500 text-white min-w-20 text-center p-2  rounded-md cursor-pointer' onClick={banUser}>بن</span>
+                <span className=' bg-primary text-white min-w-20 text-center p-2  rounded-md ' >پاسخ</span>
+                <span className=' bg-gray-500 text-white min-w-20 text-center p-2  rounded-md ' onClick={banUser}>بن</span>
             </div>
         </div >
     )

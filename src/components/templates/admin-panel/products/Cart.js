@@ -58,13 +58,13 @@ export default function Cart({ _id, name, price, score, weight, smell, suitableF
                 }
             </span>
             <div className=" flex justify-center items-center gap-5 text-xs">
-                <span className=' bg-sky-500 text-white min-w-24 text-center p-2  rounded-md cursor-pointer' onClick={() => setShowProductDetail(true)}>مشاهده جزئیات</span>
-                <span className=' bg-green-500 text-white min-w-24 text-center p-2  rounded-md cursor-pointer'>ویرایش</span>
-                <span className=' bg-red-500 text-white min-w-24 text-center p-2  rounded-md cursor-pointer' onClick={deleteProduct}>حذف</span>
+                <span className=' bg-sky-500 text-white min-w-24 text-center p-2  rounded-md ' onClick={() => setShowProductDetail(true)}>مشاهده جزئیات</span>
+                <span className=' bg-green-500 text-white min-w-24 text-center p-2  rounded-md '>ویرایش</span>
+                <span className=' bg-red-500 text-white min-w-24 text-center p-2  rounded-md ' onClick={deleteProduct}>حذف</span>
             </div>
             <div className={`${showProductDetail ? "visible opacity-100" : "invisible opacity-0"} flex justify-center items-center fixed right-0 left-0 top-0 bottom-0 bg-black bg-opacity-50 z-50 transition-all`}>
                 <div className=" flex items-start flex-col gap-3">
-                    <LiaTimesCircleSolid className="text-4xl cursor-pointer hover:text-red-500 transition-colors" onClick={() => setShowProductDetail(false)} />
+                    <LiaTimesCircleSolid className="text-4xl  hover:text-red-500 transition-colors" onClick={() => setShowProductDetail(false)} />
                     <div className=" max-w-96 rounded-2xl bg-white p-5 shadow-xl">
                         <div className=" w-80 h-80">
                             <Image

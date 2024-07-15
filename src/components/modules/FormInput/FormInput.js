@@ -20,7 +20,7 @@ export default function FormInput({ error, placeholder, type, value, name, isDis
                 <label htmlFor="">{placeholder}</label>
                 <input disabled={isDisabled} name={name} value={value} type={showPassword ? 'text' : 'password'} placeholder={placeholder} className={` w-full px-3 py-4 border-1 rounded-xl ${!isDisabled && 'hover:border-primary'} ${error ? "border-red-500" : "focus:border-primary"}  focus:rounded-none outline-none transition-all duration-300 `} onChange={onChange} onBlur={onBlur} />
                 {error ? <span className=' text-xs text-red-500'>{error}</span> : null} 
-                <div className=" absolute left-4 top-[51px] text-xl bg-white cursor-pointer " onClick={showPasswordHandler}>
+                <div className=" absolute left-4 top-[51px] text-xl bg-white " onClick={showPasswordHandler}>
                     {
                         showPassword ? (
                             <FaRegEye />
@@ -48,7 +48,7 @@ export default function FormInput({ error, placeholder, type, value, name, isDis
                 </select>
             </div>
         ) : type === 'file' ? (
-            <label htmlFor='upload' className="flex justify-center items-center flex-col gap-3 w-full p-10 bg-white border-1 hover:border-primary rounded-2xl  active:rounded-none transition-all duration-200 cursor-pointer">
+            <label htmlFor='upload' className="flex justify-center items-center flex-col gap-3 w-full p-10 bg-white border-1 hover:border-primary rounded-2xl  active:rounded-none transition-all duration-200 ">
                 <form action="" enctype="multipart/form-data">
                     <input type='file' id='upload' className='hidden' onChange={onChange} />
                 </form>

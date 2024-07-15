@@ -33,13 +33,13 @@ export default function AboutMeBox({ imgUrl }) {
                             <div className="hidden md:block">
                                 {
                                     isZoomInImage ? (
-                                        <MdOutlineZoomInMap className="text-3xl cursor-pointer hover:text-primary transition-colors" onClick={() => setIsZoomInImage(false)} />
+                                        <MdOutlineZoomInMap className="text-3xl hover:text-primary transition-colors" onClick={() => setIsZoomInImage(false)} />
                                     ) : (
-                                        <MdOutlineZoomOutMap className="text-3xl cursor-pointer hover:text-primary transition-colors" onClick={() => setIsZoomInImage(true)} />
+                                        <MdOutlineZoomOutMap className="text-3xl hover:text-primary transition-colors" onClick={() => setIsZoomInImage(true)} />
                                     )
                                 }
                             </div>
-                            <LiaTimesCircleSolid className="text-4xl cursor-pointer hover:text-red-500 transition-colors" onClick={() => setShowImageFullWidth(false)} />
+                            <LiaTimesCircleSolid className="text-4xl hover:text-red-500 transition-colors" onClick={() => setShowImageFullWidth(false)} />
                         </div>
                         <Image
                             src={imgUrl}

@@ -89,10 +89,10 @@ export default function Cart({ _id, user, title, body, department, subDepartment
 
     return (
         <div className=" flex justify-between items-center gap-10 w-full  hover:bg-gray-100 rounded-lg p-3 transition-colors">
-            <span className={` min-w-24 flex justify-center items-center text-center text-2xl rounded-md cursor-pointer`}>{
+            <span className={` min-w-24 flex justify-center items-center text-center text-2xl rounded-md `}>{
                 priority === 3 ? <FcHighPriority /> : priority === 2 ? <FcMediumPriority /> : <FcLowPriority />
             }</span>
-            <span className={` ${hasAnswer ? "bg-green-500" : "bg-zinc-500"}  text-white min-w-24 text-center text-xs p-2  rounded-md cursor-pointer`}>{hasAnswer ? "پاسخ داده شده" : "در انتظار پاسخ"}</span>
+            <span className={` ${hasAnswer ? "bg-green-500" : "bg-zinc-500"}  text-white min-w-24 text-center text-xs p-2  rounded-md `}>{hasAnswer ? "پاسخ داده شده" : "در انتظار پاسخ"}</span>
             <span className=' max-w-44 min-w-44 text-center'>{user.name}</span>
             <span className=' max-w-44 min-w-44 text-center'>{title}</span>
             <span className=' max-w-44 min-w-44 text-center'>{department.title}</span>
@@ -102,9 +102,9 @@ export default function Cart({ _id, user, title, body, department, subDepartment
                         new Date(createdAt).toLocaleDateString("fa-IR")
                     }
                 </span>
-                <span className=' bg-sky-500 text-white min-w-24 text-center p-2  rounded-md cursor-pointer' onClick={showTicketBody}>مشاهده</span>
-                <span className=' bg-green-500 text-white min-w-24 text-center p-2  rounded-md cursor-pointer' onClick={answerToTicket}>پاسخ</span>
-                <span className=' bg-gray-500 text-white min-w-24 text-center p-2  rounded-md cursor-pointer' onClick={banUser}>بن</span>
+                <span className=' bg-sky-500 text-white min-w-24 text-center p-2  rounded-md ' onClick={showTicketBody}>مشاهده</span>
+                <span className=' bg-green-500 text-white min-w-24 text-center p-2  rounded-md ' onClick={answerToTicket}>پاسخ</span>
+                <span className=' bg-gray-500 text-white min-w-24 text-center p-2  rounded-md ' onClick={banUser}>بن</span>
             </div>
         </div>
     )

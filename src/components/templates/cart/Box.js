@@ -15,7 +15,7 @@ export default function Box({name, price, count: productCount}) {
     return (
         <div className=" overflow-x-auto flex justify-between items-center gap-5 p-5 border-y-1 hover:bg-zinc-50 transition-colors">
             <div className="">
-                <TiTimes className=" text-xl text-zinc-500 hover:text-red-500 cursor-pointer transition-colors" />
+                <TiTimes className=" text-xl text-zinc-500 hover:text-red-500  transition-colors" />
             </div>
             <span>{name}</span>
             <ProductPrice price={price} />

@@ -24,14 +24,14 @@ export default function Footer() {
                 </div>
                 <div className=" flex flex-col text-center">
                     <span className=' text-lg mb-3'>فروشگاه ها</span>
-                    <span className=' text-zinc-300 hover:text-zinc-200 cursor-pointer transition-colors'>خیابان دانزمیر، لس آنجلس، کالیفرنیا 90036، ایالات متحده آمریکا</span>
-                    <span className=' text-zinc-300 hover:text-zinc-200 cursor-pointer transition-colors'>خیابان آتکینز، بروکلین، نیویورک 11208، ایالات متحده</span>
+                    <span className=' text-zinc-300 hover:text-zinc-200 transition-colors'>خیابان دانزمیر، لس آنجلس، کالیفرنیا 90036، ایالات متحده آمریکا</span>
+                    <span className=' text-zinc-300 hover:text-zinc-200 transition-colors'>خیابان آتکینز، بروکلین، نیویورک 11208، ایالات متحده</span>
                 </div>
                 <div className=" flex flex-col text-center  ">
                     <span className='text-lg mb-3'>اخبار تازه مثل قهوه ما</span>
                     <div className=" relative">
                         <input type="email" placeholder='آدرس ایمیل شما...' className='w-72 p-3 rounded bg-white text-black placeholder:text-black placeholder:text-xs bg-[rgba(0,0,0,0.1)] border-1 border-zinc-400 focus:border-black transition-all duration-200 outline-none' />
-                        <div className=" absolute left-0 bottom-0 rounded-l text-white bg-black hover:bg-primary h-full flex justify-center items-center p-3 text-2xl cursor-pointer transition-colors">
+                        <div className=" absolute left-0 bottom-0 rounded-l text-white bg-black hover:bg-primary h-full flex justify-center items-center p-3 text-2xl transition-colors">
                             <CiMail />
                         </div>
                     </div>
@@ -49,7 +49,7 @@ export default function Footer() {
                         <a href="https://t.me/Thegjad">
                             <FaTelegram className=' hover:text-primary transition-colors duration-200' />
                         </a>
-                        <FaTwitter className=' hover:text-primary transition-colors duration-200 cursor-pointer' />
+                        <FaTwitter className=' hover:text-primary transition-colors duration-200' />
                     </div>
                     <div className="flex justify-center items-center gap-5 md:mr-24">
                         <Link href={'/'}>

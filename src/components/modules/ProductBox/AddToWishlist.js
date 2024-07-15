@@ -52,7 +52,7 @@ export default function AddToWishlist({ productID }) {
     }
 
     return (
-        <div className=" bg-zinc-100 text-zinc-600 p-3 rounded-full cursor-pointer hover:bg-red-500 hover:text-white transition-colors " onClick={(e) => addToWishlist(e)}>
+        <div className=" bg-zinc-100 text-zinc-600 p-3 rounded-full hover:bg-red-500 hover:text-white transition-colors " onClick={(e) => addToWishlist(e)}>
             {
                 isActiveWishlist ? (
                     <FaHeart />

@@ -26,7 +26,6 @@ export default function AOSInit() {
           duration: 600,
           delay: 100
         })
-        Aos.refresh()
     }, [])
 
     return null

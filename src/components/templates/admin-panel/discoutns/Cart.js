@@ -57,7 +57,7 @@ export default function Cart({ _id, code, percent, maxUse, uses }) {
 
             </span>
             <div className=" flex justify-center items-center gap-5 text-xs">
-                <span className=' bg-red-500 text-white min-w-24 text-center p-2  rounded-md cursor-pointer' onClick={deleteDiscount}>حذف</span>
+                <span className=' bg-red-500 text-white min-w-24 text-center p-2  rounded-md ' onClick={deleteDiscount}>حذف</span>
             </div>
         </div>
     )

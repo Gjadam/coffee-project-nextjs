@@ -37,7 +37,7 @@ export default function Cart({ _id, body, score, productID, isAccept, date }) {
                         isAccept ? "تایید شده" : "در انتظار تایید"
                     }
                 </span>
-                <span className=' bg-sky-500 text-white min-w-24 text-center p-2  rounded-md cursor-pointer' onClick={showCommentBody}>مشاهده</span>
+                <span className=' bg-sky-500 text-white min-w-24 text-center p-2  rounded-md ' onClick={showCommentBody}>مشاهده</span>
             </div>
         </div >
     )
