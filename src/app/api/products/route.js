@@ -30,7 +30,7 @@ export async function POST(req) {
       const imgPath = path.join(process.cwd(), "public/uploads/" + filename);
   
       await writeFile(imgPath, buffer);
-  
+    
       const product = await ProductModel.create({
         name,
         price,
@@ -40,7 +40,7 @@ export async function POST(req) {
         suitableFor,
         smell,
         tags,
-        img: `http://localhost:3000/uploads/${filename}`,
+        img: `${filename}`,
       });
   
       return Response.json(
