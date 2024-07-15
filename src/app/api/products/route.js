@@ -40,7 +40,7 @@ export async function POST(req) {
         suitableFor,
         smell,
         tags,
-        img: `${filename}`,
+        img: `http://localhost:3000/uploads/${filename}`,
       });
   
       return Response.json(

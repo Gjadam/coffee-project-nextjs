@@ -5,7 +5,7 @@ const nextConfig = {
     serverComponentsExternalPackages: ["mongoose"]
   },
   images: {
-    domains: ["/", "localhost"],
+    domains: ["localhost"],
   },
 }
 
