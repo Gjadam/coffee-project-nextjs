@@ -5,7 +5,7 @@ const nextConfig = {
     serverComponentsExternalPackages: ["mongoose"]
   },
   images: {
-    domains: ["localhost"],
+    domains: ['lva4kcfubltuu0k7.public.blob.vercel-storage.com'],
   },
 }
 
