@@ -46,11 +46,11 @@ export default function Form() {
         <div className=" w-full lg:w-1/2">
             <SectionHeader title={"برای ما بنویسید"} />
             <div data-aos='fade-left' className="  flex flex-col gap-5">
-                <FormInput type={'text'} placeholder={"نام شما"} onChange={(e) => setName(e.target.value)} value={name} />
-                <FormInput type={'email'} placeholder={"ایمیل شما"} onChange={(e) => setEmail(e.target.value)} value={email} />
-                <FormInput type={'textarea'} placeholder={"پیغام شما"} onChange={(e) => setMessage(e.target.value)} value={message} />
+                <FormInput type={'text'} placeholder={"نام شما"} onChange={(e) => setName(e.target.value)} value={name} error={!name && "لطفا نام خود را وارد کنید"} />
+                <FormInput type={'email'} placeholder={"ایمیل شما"} onChange={(e) => setEmail(e.target.value)} value={email} error={!email && "لطفا ایمیل خود را وارد کنید"}/>
+                <FormInput type={'textarea'} placeholder={"پیغام شما"} onChange={(e) => setMessage(e.target.value)} value={message} error={!message && "لطفا پیغام خود را وارد کنید"}/>
                 <div className=" w-full xl:w-40">
-                    <Button text={'ارسال'} fullWith={true} onClick={submitMessage} />
+                    <Button text={'ارسال'} fullWith={true} onClick={submitMessage} isDisabled={name && email && message ? false : true}/>
                 </div>
             </div>
         </div>

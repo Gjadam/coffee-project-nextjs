@@ -65,8 +65,8 @@ export default function Cart({ _id, name, price, score, weight, smell, suitableF
             <div className={`${showProductDetail ? "visible opacity-100" : "invisible opacity-0"} flex justify-center items-center fixed right-0 left-0 top-0 bottom-0 bg-black bg-opacity-50 z-50 transition-all`}>
                 <div className=" flex items-start flex-col gap-3">
                     <LiaTimesCircleSolid className="text-4xl  hover:text-red-500 transition-colors" onClick={() => setShowProductDetail(false)} />
-                    <div className=" max-w-96 rounded-2xl bg-white p-5 shadow-xl">
-                        <div className=" w-80 h-80">
+                    <div className=" flex justify-center items-center flex-col max-w-96 rounded-2xl bg-white p-5 shadow-xl">
+                        <div className="w-80 h-80">
                             <Image
                                 alt="product"
                                 src={img}

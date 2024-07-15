@@ -45,7 +45,6 @@ export default function SendTicket() {
   }, [departmentID])
 
   const sendTicket = async () => {
-    // validation
     const ticket = {
       title,
       body,
@@ -83,8 +82,8 @@ export default function SendTicket() {
       </div>
       <div className=" w-full flex gap-5 flex-col mt-5">
         <div className=" flex flex-col md:flex-row gap-5 w-full">
-          <FormInput type={"select-option"} placeholder={"دپارتمان"} options={departments} onChange={(e) => setDepartmentID(e.target.value)} />
-          <FormInput type={"select-option"} placeholder={"نوع نیکت"} options={subDepartment} onChange={(e) => setSubDepartmentID(e.target.value)} />
+          <FormInput type={"select-option"} placeholder={"دپارتمان"} options={departments} onChange={(e) => setDepartmentID(e.target.value)} error={departmentID === -1 && "دپارتان موردنظر را انتخاب کنید"}/>
+          <FormInput type={"select-option"} placeholder={"نوع نیکت"} options={subDepartment} onChange={(e) => setSubDepartmentID(e.target.value)}  error={subDepartmentID === -1 && "نوع تیکت را انتخاب کنید"}/>
         </div>
         <div className=" flex flex-col md:flex-row gap-5 w-full">
           <FormInput
@@ -107,12 +106,12 @@ export default function SendTicket() {
               ]
             }
             onChange={(e) => setPriority(e.target.value)} />
-          <FormInput type={"text"} placeholder={"عنوان"} value={title} onChange={(e) => setTitle(e.target.value)} />
+          <FormInput type={"text"} placeholder={"عنوان"} value={title} onChange={(e) => setTitle(e.target.value)} error={!title && "عنوان تیکت را وارد کنید"}/>
         </div>
-        <FormInput type={"textarea"} placeholder={"محتوای تیکت"} value={body} onChange={(e) => setBody(e.target.value)} />
+        <FormInput type={"textarea"} placeholder={"محتوای تیکت"} value={body} onChange={(e) => setBody(e.target.value)} error={!body && "محتوای تیکت را وارد کنید"}/>
         <FormInput type={"file"} />
         <div className=" w-full md:w-40">
-          <Button text={'ارسال تیکت'} fullWith={true} onClick={sendTicket} />
+          <Button text={'ارسال تیکت'} fullWith={true} onClick={sendTicket} isDisabled={title && body && departmentID !== -1 && subDepartmentID !== -1 ? false : true}/>
         </div>
       </div>
     </div>

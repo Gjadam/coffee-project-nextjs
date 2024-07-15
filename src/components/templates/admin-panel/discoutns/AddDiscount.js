@@ -47,14 +47,14 @@ export default function AddDiscount() {
     return (
         <div className=" flex flex-col gap-5 w-full">
             <div className="flex justify-center items-center gap-5 flex-col md:flex-row">
-                <FormInput type={"text"} placeholder={"شناسه تخفیف"} value={code} onChange={(e) => setCode(e.target.value)} />
-                <FormInput type={"number"} placeholder={"درصد تخفیف"} value={percent} onChange={(e) => setPercent(e.target.value)} />
+                <FormInput type={"text"} placeholder={"شناسه تخفیف"} value={code} onChange={(e) => setCode(e.target.value)} error={!code && "شناسه تخفیف را وارد کنید"}/>
+                <FormInput type={"number"} placeholder={"درصد تخفیف"} value={percent} onChange={(e) => setPercent(e.target.value)}   error={!percent && "درصد تخفیف را وارد کنید"}/>
             </div>
             <div className="flex justify-center items-center gap-5 flex-col md:flex-row">
-                <FormInput type={"number"} placeholder={"حداکثر استفاده"} value={maxUse} onChange={(e) => setMaxUse(e.target.value)} />
+                <FormInput type={"number"} placeholder={"حداکثر استفاده"} value={maxUse} onChange={(e) => setMaxUse(e.target.value)}   error={!maxUse && "حداکثر استفاده را وارد کنید"}/>
             </div>
             <div className="w-full md:w-40 ">
-                <Button fullWith={true} text={'ثبت'} onClick={addDiscount} />
+                <Button fullWith={true} text={'ثبت'} onClick={addDiscount} isDisabled={code && percent && maxUse ? false : true} />
             </div>
         </div>
     )

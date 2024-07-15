@@ -101,7 +101,7 @@ export default function Tabs({ product }) {
 
                     ) : activeTab === 'review' ? (
                         <div data-aos='fade' className="">
-                            <span className=" text-2xl" ><span className=" text-primary ml-1">{product.comments.filter(comment => comment.isAccept).length}</span>دیدگاه برای دانه قهوه اتیوپی</span>
+                            <span className=" text-2xl" ><span className=" text-primary ml-1">{product.comments.filter(comment => comment.isAccept).length}</span>دیدگاه برای {product.name}</span>
                             <div className=" flex flex-col gap-10 my-10">
                                 {
                                     product.comments.map(comment => (

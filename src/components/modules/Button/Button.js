@@ -6,11 +6,11 @@ export default function Button({ type, isSubmitType, text, onClick, fullWith, is
         <span className='-translate-x-4 group-hover:-translate-x-5 transition-all duration-300'>{text}</span>
       </button>
     ) : type === 'outline' ? (
-      <button type={isSubmitType ? "submit" : "button"} className={` text-center ${fullWith ? 'w-full' : 'w-40'} w-full p-4 text-sm  rounded-xl  border-1 border-primary hover:border-secondary hover:bg-secondary text-primary hover:text-white transition-colors duration-300`} onClick={onClick} disabled={isDisabled}>
+      <button type={isSubmitType ? "submit" : "button"} className={` text-center ${fullWith ? 'w-full' : 'w-40'} ${isDisabled && "opacity-50 bg-secondary"} cursor-not-allowed w-full p-4 text-sm  rounded-xl  border-1 border-primary hover:border-secondary hover:bg-secondary text-primary hover:text-white transition-colors duration-300`} onClick={onClick} disabled={isDisabled}>
         {text}
       </button>
     ) : (
-      <button type={isSubmitType ? "submit" : "button"} className={` text-center ${fullWith ? 'w-full' : 'w-40'} p-4 text-sm  rounded-xl bg-primary hover:bg-secondary text-white transition-colors duration-300`} onClick={onClick} disabled={isDisabled}>
+      <button type={isSubmitType ? "submit" : "button"} className={` text-center ${fullWith ? 'w-full' : 'w-40'} ${isDisabled && "opacity-50 bg-secondary"} cursor-not-allowed p-4 text-sm  rounded-xl bg-primary hover:bg-secondary text-white transition-colors duration-300`} onClick={onClick} disabled={isDisabled}>
         {text}
       </button>
     )

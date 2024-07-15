@@ -25,12 +25,13 @@ export default async function About_me() {
             <div className=" flex flex-col gap-24">
                 <div className=" container mx-auto p-10">
                     <div data-aos='fade-down' className=" flex items-center flex-col gap-8">
-                        <SectionHeader title={'درباره سازنده'} text={'لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.'} />
-                        <p className=' text-center text-sm opacity-60 max-w-[35rem]'>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد</p>
+                        <SectionHeader title={'درباره سازنده'} text={'محمد جواد بابائی(React & Next.js  developer)'} />
+                        <p className=' text-center opacity-60 max-w-[35rem]'>در طول سال‌ها کاری در این صنعت، پروژه های متعدد با استفاده از تکنولوژی هایی از جمله React، Next.js، JavaScript، HTML/CSS و Git را توسعه داده‌ام. هدف من از طراحی و توسعه وبسایت باریستا این است که تجربه کاربری بهتری برای کاربران به ارمغان آورم و از طریق فناوری‌های نوین، بهبودهای خلاقانه ای در زمینه وب ایجاد کنم.
+اگر مایل به اطلاعات بیشتری درباره من و پروژه‌های قبلی من هستید، می‌توانید صفحه گیتهاب من را به آدرس <a className=' hover:text-primary transition-colors' href="https://github.com/Gjadam">https://github.com/Gjadam</a>  مشاهده کنید.</p>
                         <Image
                             src={'/images/png/owner-sign.png'}
                             alt='owner-sign'
-                            width={150}
+                            width={120}
                             height={0}
                         />
                     </div>

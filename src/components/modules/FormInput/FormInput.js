@@ -33,12 +33,13 @@ export default function FormInput({ error, placeholder, type, value, name, isDis
         ) : type === 'textarea' ? (
             <div className="flex  flex-col gap-2 w-full">
                 <label htmlFor="">{placeholder}</label>
-                <textarea disabled={isDisabled} value={value} placeholder={placeholder} className={` w-full h-48 px-3 py-4 border-1 rounded-xl ${!isDisabled && 'hover:border-primary'} focus:rounded-none focus:border-primary outline-none transition-all duration-300 `} onChange={onChange} />
+                <textarea disabled={isDisabled} value={value} placeholder={placeholder} className={` w-full h-48 px-3 py-4 border-1 rounded-xl ${!isDisabled && 'hover:border-primary'} focus:rounded-none ${error ? "border-red-500" : "focus:border-primary"} outline-none transition-all duration-300 `} onChange={onChange} />
+                {error ? <span className=' text-xs text-red-500'>{error}</span> : null} 
             </div>
         ) : type === 'select-option' ? (
             <div className="flex  flex-col gap-2 w-full">
                 <label htmlFor="">{placeholder}</label>
-                <select className={` text-gray-400 w-full px-3 py-4 border-1 rounded-xl ${!isDisabled && 'hover:border-primary'} focus:rounded-none focus:border-primary outline-0 transition-all duration-300 `} onChange={onChange}>
+                <select className={` text-gray-400 w-full px-3 py-4 border-1 rounded-xl ${!isDisabled && 'hover:border-primary'} focus:rounded-none ${error ? "border-red-500" : "focus:border-primary"} outline-0 transition-all duration-300 `} onChange={onChange}>
                     <option value={-1} className=' text-gray-400' >لطفا یک مورد را انتخاب نمایید</option>
                     {
                         options?.map(option => (
@@ -46,6 +47,7 @@ export default function FormInput({ error, placeholder, type, value, name, isDis
                         ))
                     }
                 </select>
+                {error ? <span className=' text-xs text-red-500'>{error}</span> : null} 
             </div>
         ) : type === 'file' ? (
             <label htmlFor='upload' className="flex justify-center items-center flex-col gap-3 w-full p-10 bg-white border-1 hover:border-primary rounded-2xl  active:rounded-none transition-all duration-200 ">
