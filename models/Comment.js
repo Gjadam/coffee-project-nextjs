@@ -13,6 +13,10 @@ const schema = new mongoose.Schema({
         type: String,
         required: true
     },
+    answer: {
+        type: String,
+        required: false
+    },
     score: {
         type: Number,
         default: 5,

@@ -10,7 +10,7 @@ import Button from "../../modules/Button/Button"
 import { FaStar } from "react-icons/fa"
 
 // SweetAlert
-import Swal from "sweetalert2"
+import toastAlert from "@/utils/toastAlert"
 
 export default function Tabs({ product }) {
 
@@ -59,10 +59,9 @@ export default function Tabs({ product }) {
             body: JSON.stringify(commentData)
         })
         if (res.status === 201) {
-            Swal.fire({
-                title: "کامنت با موفقیت ساخته شد.",
+            toastAlert.fire({
+                title: "کامنت با موفقیت ایجاد شد.",
                 icon: "success",
-                confirmButtonText: "فبول"
             })
             setUsername('')
             setEmail('')

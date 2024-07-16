@@ -79,3 +79,37 @@ export async function DELETE(req) {
         )
     }
 }
+
+export async function PUT(req) {
+    try {
+        connectToDB()
+        const body = await req.json()
+        const {commentID, answer} = body
+
+        if(!answer && !commentID) {
+            return Response.json(
+                {message: 'Answer or commentID not found !'},
+                {status: 404}
+            )
+        }
+
+        await CommentModel.findOneAndUpdate(
+            {_id: commentID},
+            {
+                $set: {
+                    answer
+                }
+            }
+        )
+        return Response.json(
+            {message: "َAnswer saved successfully."},
+            {status: 201}
+        )
+
+    } catch(err) {
+        return Response.json(
+            {message: err},
+            {status: 500}
+        )
+    }
+}
