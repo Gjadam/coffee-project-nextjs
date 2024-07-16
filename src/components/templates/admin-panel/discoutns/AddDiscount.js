@@ -6,7 +6,7 @@ import FormInput from '@/components/modules/FormInput/FormInput'
 import Button from '@/components/modules/Button/Button'
 
 // SweetAlert
-import Swal from 'sweetalert2'
+import toastAlert from '@/utils/toastAlert'
 
 export default function AddDiscount() {
 
@@ -32,10 +32,9 @@ export default function AddDiscount() {
         });
 
         if (res.status === 201) {
-            Swal.fire({
+            toastAlert.fire({
                 title: "کد تخفیف با موفقیت ایجاد شد.",
                 icon: "success",
-                confirmButtonText: "باشه"
             })
             setCode("")
             setPercent("")

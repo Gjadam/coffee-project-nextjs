@@ -42,7 +42,7 @@ const schema = new mongoose.Schema({
     },
     mainTicket: {
         type: mongoose.Types.ObjectId,
-        red: "Ticket",
+        ref: "Ticket",
         required: false,
     },
 },

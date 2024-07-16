@@ -94,7 +94,6 @@ function Register({ showLoginForm }) {
                     toastAlert.fire({
                         text: "ثبت نام با موفقیت انجام شد",
                         icon: "success",
-                        confirmButtonText: "ورود به پنل کاربری"
                     }).then(() => {
                         router.replace("/")
                     })
@@ -121,7 +120,6 @@ function Register({ showLoginForm }) {
                     toastAlert.fire({
                         text: `این شماره تماس قبلا ثبت نام شده.`,
                         icon: "error",
-                        confirmButtonText: "بازگشت به صفحه ورود"
                     }).then(() => {
                         showLoginForm()
                     })

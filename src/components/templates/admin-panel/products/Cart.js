@@ -12,6 +12,7 @@ import { LiaTimesCircleSolid } from 'react-icons/lia'
 
 // SweetAlert
 import Swal from 'sweetalert2'
+import toastAlert from '@/utils/toastAlert'
 
 export default function Cart({ _id, name, price, score, weight, smell, suitableFor, shortDescription, longDescription, img }) {
 
@@ -33,7 +34,7 @@ export default function Cart({ _id, name, price, score, weight, smell, suitableF
                     body: JSON.stringify({ id: _id })
                 })
                 if (res.status === 200) {
-                    Swal.fire({
+                    toastAlert.fire({
                         title: "محصول موردنظر با موفقیت حذف شد.",
                         icon: "success",
                         confirmButtonText: "باشه",

@@ -9,6 +9,7 @@ import { FaArrowsRotate } from 'react-icons/fa6';
 
 // SweetAlert
 import Swal from 'sweetalert2';
+import toastAlert from '@/utils/toastAlert';
 
 export default function UserBox({ _id, name, email, role, phone }) {
     const router = useRouter()
@@ -30,10 +31,9 @@ export default function UserBox({ _id, name, email, role, phone }) {
                     body: JSON.stringify({ id: _id })
                 })
                 if (res.status === 200) {
-                    Swal.fire({
+                    toastAlert.fire({
                         title: "تغییر سطح با موفقیت انجام شد.",
                         icon: "success",
-                        confirmButtonText: "باشه",
                     })
                     router.refresh()
                 }
@@ -55,10 +55,9 @@ export default function UserBox({ _id, name, email, role, phone }) {
                     body: JSON.stringify({ id: _id })
                 })
                 if (res.status === 200) {
-                    Swal.fire({
+                    toastAlert.fire({
                         title: "کاربر مورد نظر با موفقیت حذف شد",
                         icon: "success",
-                        confirmButtonText: "باشه",
                     })
                     router.refresh()
                 }
@@ -86,7 +85,7 @@ export default function UserBox({ _id, name, email, role, phone }) {
                     })
                 })
                 if (res.status === 200) {
-                    Swal.fire({
+                    toastAlert.fire({
                         title: "کاربر مورد نظر با موفقیت بن شد",
                         icon: "success",
                         confirmButtonText: "باشه",
@@ -140,10 +139,9 @@ export default function UserBox({ _id, name, email, role, phone }) {
                                     body: JSON.stringify(newUserInfo)
                                 })
                                 if (res.status === 200) {
-                                    Swal.fire({
+                                    toastAlert.fire({
                                         title: "اطلاعات کاربر مورد نظر با موفقیت تغییر یافت",
                                         icon: "success",
-                                        confirmButtonText: "باشه",
                                     })
                                     router.refresh()
                                 }

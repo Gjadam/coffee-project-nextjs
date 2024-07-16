@@ -1,4 +1,5 @@
 "use client"
+import toastAlert from "@/utils/toastAlert";
 import { useRouter } from "next/navigation"
 
 // Icons
@@ -45,10 +46,9 @@ export default function Cart({ _id, user, title, body, department, subDepartment
                     body: JSON.stringify(answer)
                 })
                 if (res.status === 201) {
-                    Swal.fire({
+                    toastAlert.fire({
                         title: "پاسخ مورد نظر با موفقیت ثبت شد.",
                         icon: "success",
-                        confirmButtonText: "باشه",
                     })
                     router.refresh()
                 }
@@ -76,10 +76,9 @@ export default function Cart({ _id, user, title, body, department, subDepartment
                     })
                 })
                 if (res.status === 200) {
-                    Swal.fire({
+                    toastAlert.fire({
                         title: "کاربر مورد نظر با موفقیت بن شد",
                         icon: "success",
-                        confirmButtonText: "باشه",
                     })
                     router.refresh()
                 }
@@ -93,7 +92,7 @@ export default function Cart({ _id, user, title, body, department, subDepartment
                 priority === 3 ? <FcHighPriority /> : priority === 2 ? <FcMediumPriority /> : <FcLowPriority />
             }</span>
             <span className={` ${hasAnswer ? "bg-green-500" : "bg-zinc-500"}  text-white min-w-24 text-center text-xs p-2  rounded-md `}>{hasAnswer ? "پاسخ داده شده" : "در انتظار پاسخ"}</span>
-            <span className=' max-w-44 min-w-44 text-center'>{user.name}</span>
+            <span className=' max-w-44 min-w-44 text-center'>{user?.phone}</span>
             <span className=' max-w-44 min-w-44 text-center'>{title}</span>
             <span className=' max-w-44 min-w-44 text-center'>{department.title}</span>
             <div className=" flex justify-center items-center gap-5 text-xs">

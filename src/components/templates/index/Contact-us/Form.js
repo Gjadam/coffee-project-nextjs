@@ -8,6 +8,7 @@ import SectionHeader from '@/components/modules/SectionHeader/SectionHeader'
 
 // SweetAlert
 import Swal from 'sweetalert2'
+import toastAlert from '@/utils/toastAlert'
 
 export default function Form() {
 
@@ -31,10 +32,9 @@ export default function Form() {
             body: JSON.stringify(contact)
         })
         if(res.status === 201) {
-            Swal.fire({
+            toastAlert.fire({
                 title: "پیغام شما با موفقیت ارسال شد.",
                 icon: "success",
-                confirmButtonText: "باشه"
             })
             setName("")
             setEmail("")

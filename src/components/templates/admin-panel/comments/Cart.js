@@ -3,6 +3,7 @@ import { useRouter } from "next/navigation"
 
 // SweetAlert
 import Swal from "sweetalert2"
+import toastAlert from "@/utils/toastAlert"
 
 // Icons
 import { FaStar } from "react-icons/fa"
@@ -32,7 +33,7 @@ export default function Cart({ _id, username, email, body, score, isAccept, prod
                     body: JSON.stringify({ id: _id })
                 })
                 if (res.status === 200) {
-                    Swal.fire({
+                    toastAlert.fire({
                         title: "کامنت موردنظر با موفقیت حذف شد.",
                         icon: "success",
                         confirmButtonText: "باشه"
@@ -42,42 +43,6 @@ export default function Cart({ _id, username, email, body, score, isAccept, prod
             }
         })
     }
-
-    // const answerToTicket = () => {
-    //     Swal.fire({
-    //         title: "لطفا پاسخ موردنظر را وارد کنید",
-    //         input: "text",
-    //         showDenyButton: true,
-    //         denyButtonText: "لغو",
-    //         confirmButtonText: "ثبت پاسخ"
-    //     }).then(async (result) => {
-    //         if (result.isConfirmed) {
-    //             const answer = {
-    //                 title,
-    //                 body: result.value,
-    //                 department,
-    //                 subDepartment,
-    //                 priority,
-    //                 ticketID: _id
-    //             }
-    //             const res = await fetch('/api/tickets/answer', {
-    //                 method: "POST",
-    //                 headers: {
-    //                     "Content-Type": "application/json"
-    //                 },
-    //                 body: JSON.stringify(answer)
-    //             })
-    //             if (res.status === 201) {
-    //                 Swal.fire({
-    //                     title: "پاسخ مورد نظر با موفقیت ثبت شد.",
-    //                     icon: "success",
-    //                     confirmButtonText: "باشه",
-    //                 })
-    //                 router.refresh()
-    //             }
-    //         }
-    //     })
-    // }
 
     const banUser = () => {
         Swal.fire({
@@ -99,10 +64,9 @@ export default function Cart({ _id, username, email, body, score, isAccept, prod
                     })
                 })
                 if (res.status === 200) {
-                    Swal.fire({
+                    toastAlert.fire({
                         title: "کاربر مورد نظر با موفقیت بن شد",
                         icon: "success",
-                        confirmButtonText: "باشه",
                     })
                     router.refresh()
                 }
@@ -119,14 +83,44 @@ export default function Cart({ _id, username, email, body, score, isAccept, prod
             body: JSON.stringify({ id: _id })
         })
         if (res.status === 200) {
-            Swal.fire({
+            toastAlert.fire({
                 title: "کامنت مورد نظر با موفقیت تایید شد",
                 icon: "success",
-                confirmButtonText: "باشه",
             }).then(() => {
                 router.refresh();
             });
         }
+    }
+
+    const answerToComment = () => {
+        Swal.fire({
+            title: "لطفا پاسخ موردنظر را وارد کنید",
+            input: "text",
+            showDenyButton: true,
+            denyButtonText: "لغو",
+            confirmButtonText: "ثبت پاسخ"
+        }).then(async (result) => {
+            if (result.isConfirmed) {
+                const answer = {
+                    answer: result.value,
+                    commentID: _id,
+                }
+                const res = await fetch('/api/comments', {
+                    method: "PUT",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(answer)
+                })
+                if (res.status === 201) {
+                    toastAlert.fire({
+                        title: "پاسخ مورد نظر با موفقیت ثبت شد.",
+                        icon: "success",
+                    })
+                    router.refresh()
+                }
+            }
+        })
     }
 
     const rejectComment = async () => {
@@ -138,7 +132,7 @@ export default function Cart({ _id, username, email, body, score, isAccept, prod
             body: JSON.stringify({ id: _id })
         })
         if (res.status === 200) {
-            Swal.fire({
+            toastAlert.fire({
                 title: "کامنت مورد نظر با موفقیت رد شد",
                 icon: "success",
                 confirmButtonText: "باشه",
@@ -181,9 +175,9 @@ export default function Cart({ _id, username, email, body, score, isAccept, prod
                         <span className=' bg-blue-500 text-white min-w-20 text-center p-2  rounded-md ' onClick={acceptComment}>تایید</span>
                     )
                 }
-                <span className=' bg-primary text-white min-w-20 text-center p-2  rounded-md ' >پاسخ</span>
+                <span className=' bg-primary text-white min-w-20 text-center p-2  rounded-md ' onClick={answerToComment}>پاسخ</span>
                 <span className=' bg-gray-500 text-white min-w-20 text-center p-2  rounded-md ' onClick={banUser}>بن</span>
             </div>
-        </div >
+        </div>
     )
 }

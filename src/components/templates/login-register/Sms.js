@@ -8,6 +8,7 @@ import RegisterFormTitle from '../../modules/RegisterFormTitle/RegisterFormTitle
 
 // SweetAlert
 import Swal from 'sweetalert2'
+import toastAlert from '@/utils/toastAlert'
 
 export default function Sms({ phone, showLoginWithOtp, backToFirstPageName }) {
 
@@ -27,9 +28,9 @@ export default function Sms({ phone, showLoginWithOtp, backToFirstPageName }) {
     function otpBackSpace(e) {
         if (e.key === "Backspace") {
             let previousInput = e.target.previousSibling
-        if(previousInput) {
-            previousInput.focus()
-        }
+            if (previousInput) {
+                previousInput.focus()
+            }
         }
     }
 
@@ -41,26 +42,21 @@ export default function Sms({ phone, showLoginWithOtp, backToFirstPageName }) {
             body: JSON.stringify(body)
         })
         if (res.status === 409) {
-            Swal.fire({
+            toastAlert.fire({
                 title: "کد وارد شده معتبر نیست.",
                 icon: "error",
-                confirmButtonText: "تلاش مجدد"
             })
         } else if (res.status === 410) {
-            Swal.fire({
+            toastAlert.fire({
                 title: "کد وارد شده منقضی شده.",
                 icon: "error",
-                confirmButtonText: "تلاش مجدد"
             })
         } else if (res.status === 200) {
-            Swal.fire({
+            toastAlert.fire({
                 title: `${backToFirstPageName === 'ثبتنام' ? "ثبتنام شما با موفقیت انجام شد." : "با موفقیت وارد شدید."}`,
                 icon: "success",
-                confirmButtonText: "ورود به صفحه اصلی",
-            }).then(result => {
-                if (result.isConfirmed) {
-                    router.replace('/')
-                }
+            }).then(() => {
+                router.replace('/')
             })
         }
     }

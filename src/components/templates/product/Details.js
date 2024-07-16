@@ -6,10 +6,11 @@ import { FaFacebook, FaHeart, FaInstagram, FaRegHeart, FaStar, FaTelegram, FaTwi
 import ProductPrice from '../../modules/ProductPrice/ProductPrice'
 import Button from '../../modules/Button/Button'
 import Tag from '../../modules/Tag/Tag'
+import QuantityCounter from '@/components/modules/QuantityCounter/QuantityCounter'
 
 // SweetAlert
 import Swal from 'sweetalert2'
-import QuantityCounter from '@/components/modules/QuantityCounter/QuantityCounter'
+import toastAlert from '@/utils/toastAlert'
 
 
 export default function Details({ product, userID }) {
@@ -35,10 +36,9 @@ export default function Details({ product, userID }) {
                 setIsActiveWishlist(false)
             }
         } else {
-            Swal.fire({
+            toastAlert.fire({
                 title: "برای افزودن محصول به علاقه مندی ها ابتدا باید لاگین کنید.",
                 icon: "error",
-                confirmButtonText: "باشه"
             })
         }
     }
@@ -56,10 +56,9 @@ export default function Details({ product, userID }) {
                     }
                 });
                 localStorage.setItem("cart", JSON.stringify(cart));
-                Swal.fire({
+                toastAlert.fire({
                     title: "محصول با موفقیت به سبد خرید اضافه شد.",
                     icon: "success",
-                    confirmButtonText: "فهمیدم"
                 })
             } else {
                 const cartItem = {
@@ -72,10 +71,9 @@ export default function Details({ product, userID }) {
                 cart.push(cartItem);
 
                 localStorage.setItem("cart", JSON.stringify(cart));
-                Swal.fire({
+                toastAlert.fire({
                     title: "محصول با موفقیت به سبد خرید اضافه شد.",
                     icon: "success",
-                    confirmButtonText: "فهمیدم"
                 })
             }
         } else {
@@ -89,10 +87,9 @@ export default function Details({ product, userID }) {
             cart.push(cartItem);
 
             localStorage.setItem("cart", JSON.stringify(cart));
-            Swal.fire({
+            toastAlert.fire({
                 title: "محصول با موفقیت به سبد خرید اضافه شد.",
                 icon: "success",
-                confirmButtonText: "فهمیدم"
             })
         }
     };

@@ -5,7 +5,7 @@ import { useEffect, useState } from "react"
 import { FaHeart, FaRegHeart } from "react-icons/fa"
 
 // SweetAlert
-import Swal from "sweetalert2"
+import toastAlert from "@/utils/toastAlert"
 
 export default function AddToWishlist({ productID }) {
 
@@ -42,11 +42,9 @@ export default function AddToWishlist({ productID }) {
                 setIsActiveWishlist(false)
             }
         } else {
-            Swal.fire({
+            toastAlert.fire({
                 title: "برای افزودن محصول به علاقه مندی ها ابتدا باید لاگین کنید.",
                 icon: "error",
-                confirmButtonText: "باشه",
-                confirmButtonColor: "#3085d6",
             })
         }
     }

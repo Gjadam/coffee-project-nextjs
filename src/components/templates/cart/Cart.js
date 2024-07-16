@@ -10,6 +10,7 @@ import Factor from './Factor'
 
 // SweetAlert
 import Swal from 'sweetalert2'
+import toastAlert from '@/utils/toastAlert'
 
 export default function Cart() {
     const [cart, setCart] = useState([]);
@@ -40,13 +41,12 @@ export default function Cart() {
             body: JSON.stringify({ code: discount })
         })
         if (res.status === 404) {
-            Swal.fire({
+            toastAlert.fire({
                 title: "کد تخفیف وارد شده معتبر نیست!",
                 icon: "error",
-                confirmButtonText: "تلاش مجدد"
             })
         } else if (res.status === 422) {
-            Swal.fire({
+            toastAlert.fire({
                 title: "کد تخفیف منقضی شده!",
                 icon: "error",
                 confirmButtonText: "تلاش مجدد"
@@ -55,10 +55,9 @@ export default function Cart() {
             const discountCode = await res.json()
             const newPrice = totalPrice - (totalPrice * discountCode.percent) / 100
             setTotalPrice(newPrice)
-            Swal.fire({
+            toastAlert.fire({
                 title: "کد تخفیف با موفقیت اعمال شد.",
                 icon: "success",
-                confirmButtonText: "باشه"
             }).then(() => {
                 setDiscount("")
             })

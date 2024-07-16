@@ -95,7 +95,6 @@ function Login({ showRegisterForm }) {
                         toastAlert.fire({
                             text: "با موفقیت وارد شدید",
                             icon: "success",
-                            confirmButtonText: "ورود به صفحه اصلی"
                         }).then(() => {
                             router.replace("/")
                         })

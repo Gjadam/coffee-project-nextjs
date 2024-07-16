@@ -2,7 +2,7 @@ import Image from 'next/image'
 
 export default function SectionHeader({title, text}) {
     return (
-        <div data-aos='zoom-in' className=' flex justify-center items-center flex-col gap-5 text-center'>
+        <div className=' flex justify-center items-center flex-col gap-5 text-center'>
             <h1 className=" text-4xl">{title}</h1>
             <Image
                 src={'/images/png/title-separator.png'}

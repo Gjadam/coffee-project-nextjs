@@ -1,8 +1,9 @@
 "use client"
-
 import { useRouter } from "next/navigation"
+
 // SweetAlert
 import Swal from "sweetalert2"
+import toastAlert from "@/utils/toastAlert"
 
 export default function Cart({ _id, code, percent, maxUse, uses }) {
 
@@ -22,7 +23,7 @@ export default function Cart({ _id, code, percent, maxUse, uses }) {
                     body: JSON.stringify({ id: _id })
                 })
                 if (res.status === 200) {
-                    Swal.fire({
+                    toastAlert.fire({
                         title: "کد تخفیف موردنظر با موفقیت حذف شد.",
                         icon: "success",
                         confirmButtonText: "بله"
