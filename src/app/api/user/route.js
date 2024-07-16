@@ -1,5 +1,6 @@
 import connectToDB from "@/configs/db";
 import UserModel from '@/models/User'
+import TicketModel from '@/models/Ticket'
 import { authUser } from "@/utils/serverHelpers";
 export async function POST(req) {
     try {
@@ -45,6 +46,7 @@ export async function DELETE(req) {
         const { id } = body
 
         await UserModel.findOneAndDelete({ _id: id })
+        await TicketModel.findOneAndDelete({ user: id })
 
         return Response.json(
             { message: "User deleted successfully." },
