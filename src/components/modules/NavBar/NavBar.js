@@ -179,7 +179,6 @@ export default function NavBar({ isLogin }) {
                         </div>
                         <div className=" flex flex-col xl:flex-row gap-3 w-full">
                             <NavBarLink route={'/'} text={'صفحه اصلی'} />
-                            <NavBarLink route={''} text={'فروشگاه'} />
                             <NavBarLink route={'/about-us'} text={'درباره ما'} />
                             <NavBarLink route={'/contact-us'} text={'ارتباط با ما'} />
                             <NavBarLink route={'/about-me'} text={'درباره من'} />

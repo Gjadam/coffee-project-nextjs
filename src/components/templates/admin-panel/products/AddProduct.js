@@ -8,7 +8,7 @@ import Button from '@/components/modules/Button/Button'
 import FormInput from '@/components/modules/FormInput/FormInput'
 
 // SweetAlert
-import Swal from 'sweetalert2'
+import toastAlert from '@/utils/toastAlert'
 
 
 export default function AddProduct() {
@@ -60,10 +60,9 @@ export default function AddProduct() {
       });
 
       if (res.status === 201) {
-        Swal.fire({
+        toastAlert.fire({
           title: "محصول موردنظر با موفقیت ایجاد شد.",
           icon: "success",
-          confirmButtonText: "باشه"
         }).then(() => {
           router.refresh()
         })
