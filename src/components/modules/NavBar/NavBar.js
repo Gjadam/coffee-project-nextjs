@@ -10,7 +10,7 @@ import NavBarLinkWithIcon from "../../../components/modules/NavBarLinkWithIcon/N
 
 // Icons
 import { CiLogin } from "react-icons/ci";
-import { IoHeart, IoHome, IoLogOut, IoMoonOutline, IoTicket } from "react-icons/io5";
+import { IoHeart, IoHome, IoLogOut, IoMoonOutline, IoSearch, IoTicket } from "react-icons/io5";
 import { HiOutlineShoppingCart } from "react-icons/hi2";
 import { HiBars3 } from "react-icons/hi2";
 import { BiSolidCategory, BiUser } from "react-icons/bi";
@@ -21,15 +21,32 @@ import { MdAdminPanelSettings } from "react-icons/md";
 // SweetAlert
 import Swal from "sweetalert2";
 import toastAlert from "@/utils/toastAlert";
+import Alert from "../Alert/Alert";
 
 export default function NavBar({ isLogin }) {
 
     const router = useRouter()
 
-
     const [fixTop, setFixTop] = useState(false)
 
+    const [isOpenSearchBox, setIsOpenSearchBox] = useState(false)
+    const [searchValue, setSearchValue] = useState("")
+    const [productDataFromSearch, setProductDataFromSearch] = useState([])
+
     const [openSidebar, setOpenSideBar] = useState(false)
+
+    useEffect(() => {
+        const getProductWithSearch = async () => {
+            const res = await fetch(`/api/search?q=${searchValue}`)
+            if (res.status === 200) {
+                const data = await res.json()
+                setProductDataFromSearch(data)
+            }
+        }
+        if (searchValue.trim()) {
+            getProductWithSearch()
+        }
+    }, [searchValue])
 
     useEffect(() => {
         const fixNavbarToTop = () => {
@@ -83,8 +100,43 @@ export default function NavBar({ isLogin }) {
                                 <HiOutlineShoppingCart className="" />
                             </div>
                         </Link>
-                        <div className=" p-3 border-1 border-primary rounded-full bg-opacity-5 bg-white hover:bg-primary transition-colors">
-                            <IoMoonOutline className="" />
+                        <div className="relative">
+
+                            <div className=" flex justify-center items-center flex-row-reverse border-1 border-primary rounded-full p-1 bg-opacity-5 bg-white hover:bg-primary transition-colors overflow-hidden" >
+                                <div className=" p-2 " onClick={() => setIsOpenSearchBox(!isOpenSearchBox)}>
+                                    <IoSearch className="" />
+                                </div>
+                                <input type="text" placeholder="جستوجو..." className={` placeholder:text-white placeholder:text-xs text-sm bg-transparent text-white outline-none ${isOpenSearchBox ? 'w-36' : 'w-0'} transition-all`} value={searchValue} onChange={(e) => setSearchValue(e.target.value)} />
+                            </div>
+                            <div className={`absolute left-0 top-full z-50 pt-7`}>
+
+                                <div className={` ${searchValue.length > 0 ? "opacity-100 visible" : "invisible opacity-0"} ${fixTop ? 'bg-white text-secondary bg-opacity-80' : ' bg-black text-white bg-opacity-80 '} border-1 border-primary rounded-3xl  w-80 p-5 transition-all`}>
+                                    {
+                                        productDataFromSearch.length > 0 ? (
+                                            productDataFromSearch.map(product => (
+                                                <Link href={`/product/${product._id}`}>
+                                                    <div className=" flex justify-between items-center flex-row-reverse hover:bg-primary hover:bg-opacity-70 rounded-xl p-2 transition-colors overflow-hidden">
+                                                        <Image
+                                                            src={product.img}
+                                                            alt="primary-logo"
+                                                            width={60}
+                                                            height={0}
+                                                            className=" rounded-xl"
+                                                        />
+                                                        <span className=" text-sm">{product.name}</span>
+                                                        <span className=" text-sm">
+                                                            {product.price?.toLocaleString()}
+                                                            <span className=' text-xs mr-1'>تومان</span>
+                                                        </span>
+                                                    </div>
+                                                </Link>
+                                            ))
+                                        ) : (
+                                            <p className=" w-full text-center text-sm">محصول موردنظر یافت نشد</p>
+                                        )
+                                    }
+                                </div>
+                            </div>
                         </div>
                     </div>
                     {
