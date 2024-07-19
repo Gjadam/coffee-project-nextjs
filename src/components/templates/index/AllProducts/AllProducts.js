@@ -22,7 +22,7 @@ export default async function AllProducts() {
         <div className=" relative w-full  p-32 flex justify-center items-center snap-center  bg-[url('/images/jpg/landing-bg3.jpg')] bg-cover bg-center bg-no-repeat">
             <div className="flex justify-center items-center flex-col gap-5 text-center">
                 <SectionHeader title={'کافی شاپ آنلاین'} />
-                <div className="flex justify-center items-center flex-wrap gap-20 mt-10">
+                <div className="flex justify-center items-start flex-wrap gap-20 mt-10">
                     {
                         allProducts.map(product => (
                             <Link href={`/product/${product._id}`}>

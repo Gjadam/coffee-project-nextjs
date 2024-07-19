@@ -13,7 +13,7 @@ import { HiOutlineShoppingCart } from "react-icons/hi2";
 export default async function ProductBox({ _id, name, price, shortDescription, score, img }) {
 
     return (
-        <div className=" relative w-80 flex justify-center items-center text-start flex-col bg-white p-5 rounded-2xl  hover:border-1 border-opacity-0 hover:border-opacity-100 border-primary transition-all duration-200">
+        <div className=" relative w-80  flex justify-center items-center text-start flex-col bg-white p-5 rounded-2xl shadow hover:shadow-lg transition-all duration-200">
             <div className=" flex justify-center items-center flex-col w-full gap-5">
                 <div className=" w-72 h-72">
                 <Image
