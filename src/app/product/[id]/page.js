@@ -30,7 +30,7 @@ export default async function Product({ params }) {
     return (
         <>
             <NavBar isLogin={user} />
-            <CategoryHeader title={'فروشگاه'} />
+            <CategoryHeader title={product.name} />
             <div className=" container mx-auto my-28">
                 <div className=" flex justify-start items-start flex-col md:flex-row gap-10 p-10 ">
                     <Gallery img={JSON.parse(JSON.stringify(product)).img} />

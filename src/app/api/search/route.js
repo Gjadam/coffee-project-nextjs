@@ -13,12 +13,11 @@ export async function GET(req) {
                 {status: 400}
             )  
         }  
-        const products = await ProductModel.find({ name: {$regex:queryParams} }, "name price img")
+        const products = await ProductModel.find({ name: {$regex:queryParams} })
  
         return Response.json(products)
     
     } catch(err) {
-        console.log(err);
         return Response.json(
             {message: err},
             {status: 500}

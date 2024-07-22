@@ -18,8 +18,8 @@ export default function Comments({ products }) {
                     <div className=" w-full border-t-1 pt-3">
                         {
                             products.length > 0 ? (
-                                products.map((comment) => (
-                                    <Cart key={comment._id} {...comment} />
+                                products.map((product) => (
+                                    <Cart key={product._id} {...product} />
                                 ))
                             ) : (
                                 <Alert title={"محصولی وجود ندارد"} text={"هنوز هیچ محصولی ایجاد نشده است!"} />

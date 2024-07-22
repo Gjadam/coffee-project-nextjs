@@ -37,7 +37,7 @@ export default function Details({ product, userID }) {
             }
         } else {
             toastAlert.fire({
-                title: "برای افزودن محصول به علاقه مندی ها ابتدا باید لاگین کنید.",
+                text: "برای افزودن محصول به علاقه مندی ها ابتدا باید لاگین کنید.",
                 icon: "error",
             })
         }

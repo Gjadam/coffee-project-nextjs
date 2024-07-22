@@ -8,9 +8,7 @@ import ProductPrice from '../ProductPrice/ProductPrice';
 import { FaRegStar } from "react-icons/fa";
 import { HiOutlineShoppingCart } from "react-icons/hi2";
 
-// Backend
-
-export default async function ProductBox({ _id, name, price, shortDescription, score, img }) {
+export default  function ProductBox({ _id, name, price, shortDescription, score, img }) {
 
     return (
         <div className=" relative w-80  flex justify-center items-center text-start flex-col bg-white p-5 rounded-2xl shadow hover:shadow-lg transition-all duration-200">

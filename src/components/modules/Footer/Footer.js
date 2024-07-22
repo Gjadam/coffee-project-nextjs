@@ -55,6 +55,9 @@ export default function Footer() {
                         <Link href={'/'}>
                             <span className="text-white hover:text-primary transition-colors">صفحه اصلی</span>
                         </Link>
+                        <Link href={'/shop'}>
+                            <span className="text-white hover:text-primary transition-colors">فروشگاه</span>
+                        </Link>
                         <Link href={'/about-us'}>
                             <span className="text-white hover:text-primary transition-colors">درباره ما</span>
                         </Link>

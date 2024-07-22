@@ -21,7 +21,6 @@ import { MdAdminPanelSettings } from "react-icons/md";
 // SweetAlert
 import Swal from "sweetalert2";
 import toastAlert from "@/utils/toastAlert";
-import Alert from "../Alert/Alert";
 
 export default function NavBar({ isLogin }) {
 
@@ -101,12 +100,17 @@ export default function NavBar({ isLogin }) {
                             </div>
                         </Link>
                         <div className="relative">
-
                             <div className=" flex justify-center items-center flex-row-reverse border-1 border-primary rounded-full p-1 bg-opacity-5 bg-white hover:bg-primary transition-colors overflow-hidden" >
                                 <div className=" p-2 " onClick={() => setIsOpenSearchBox(!isOpenSearchBox)}>
-                                    <IoSearch className="" />
+                                    {
+                                        isOpenSearchBox ? (
+                                            <LiaTimesSolid />
+                                        ) : (
+                                            <IoSearch />
+                                        )
+                                    }
                                 </div>
-                                <input type="text" placeholder="جستوجو..." className={` placeholder:text-white placeholder:text-xs text-sm bg-transparent text-white outline-none ${isOpenSearchBox ? 'w-36' : 'w-0'} transition-all`} value={searchValue} onChange={(e) => setSearchValue(e.target.value)} />
+                                <input type="text" placeholder="جستوجو..." className={` ${fixTop ? "placeholder:text-secondary text-secondary " : "placeholder:text-white text-white"} placeholder:text-xs text-sm bg-transparent outline-none ${isOpenSearchBox ? 'w-36' : 'w-0'} transition-all`} value={searchValue} onChange={(e) => setSearchValue(e.target.value)} />
                             </div>
                             <div className={`absolute left-0 top-full z-50 pt-7`}>
 
@@ -229,8 +233,10 @@ export default function NavBar({ isLogin }) {
                                 </div>
                             </div>
                         </div>
+                    <input type="text" placeholder='جستوجو...' className='xl:hidden border-1 border-primary rounded-3xl p-3 bg-secondary outline-none w-full' value={searchValue} onChange={(e) => setSearchValue(e.target.value)} />
                         <div className=" flex flex-col xl:flex-row gap-3 w-full">
                             <NavBarLink route={'/'} text={'صفحه اصلی'} />
+                            <NavBarLink route={'/shop'} text={'فروشگاه'} />
                             <NavBarLink route={'/about-us'} text={'درباره ما'} />
                             <NavBarLink route={'/contact-us'} text={'ارتباط با ما'} />
                             <NavBarLink route={'/about-me'} text={'درباره من'} />
