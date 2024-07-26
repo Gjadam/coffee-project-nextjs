@@ -3,6 +3,11 @@
 @tailwind utilities;
 
 
+@font-face {
+  font-family: 'Reyhaneh';
+  src: url('../../public/fonts/Reyhaneh.ttf');
+}
+
 body {
   font-family: 'Reyhaneh';
 }
