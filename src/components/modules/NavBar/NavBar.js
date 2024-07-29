@@ -22,30 +22,36 @@ import { MdAdminPanelSettings } from "react-icons/md";
 import Swal from "sweetalert2";
 import toastAlert from "@/utils/toastAlert";
 
-export default function NavBar({ isLogin }) {
+export default function NavBar({ isLogin, searchParam }) {
 
     const router = useRouter()
 
     const [fixTop, setFixTop] = useState(false)
 
     const [isOpenSearchBox, setIsOpenSearchBox] = useState(false)
-    const [searchValue, setSearchValue] = useState("")
+    const [searchValue, setSearchValue] = useState(searchParam)
     const [productDataFromSearch, setProductDataFromSearch] = useState([])
 
     const [openSidebar, setOpenSideBar] = useState(false)
 
     useEffect(() => {
-        const getProductWithSearch = async () => {
-            const res = await fetch(`/api/search?q=${searchValue}`)
-            if (res.status === 200) {
-                const data = await res.json()
-                setProductDataFromSearch(data)
-            }
-        }
-        if (searchValue.trim()) {
+        if (searchValue && searchValue.trim()) {
             getProductWithSearch()
         }
     }, [searchValue])
+
+    const getProductWithSearch = async () => {
+        const res = await fetch(`/api/search?q=${searchValue}`)
+        if (res.status === 200) {
+            const data = await res.json()
+            setProductDataFromSearch(data)
+        }
+    }
+
+    const goToSearchPage = (e) => {
+        e.preventDefault()
+        router.replace(`/search?q=${searchValue}`)
+    }
 
     useEffect(() => {
         const fixNavbarToTop = () => {
@@ -110,11 +116,13 @@ export default function NavBar({ isLogin }) {
                                         )
                                     }
                                 </div>
-                                <input type="text" placeholder="جستوجو..." className={` ${fixTop ? "placeholder:text-secondary text-secondary " : "placeholder:text-white text-white"} placeholder:text-xs text-sm bg-transparent outline-none ${isOpenSearchBox ? 'w-36' : 'w-0'} transition-all`} value={searchValue} onChange={(e) => setSearchValue(e.target.value)} />
+                                <form onSubmit={goToSearchPage}>
+                                    <input type="text" placeholder="جستوجو..." className={` ${fixTop ? "placeholder:text-secondary text-secondary " : "placeholder:text-white text-white"} placeholder:text-xs text-sm bg-transparent outline-none ${isOpenSearchBox ? 'w-36' : 'w-0'} transition-all`} value={searchValue} onChange={(e) => setSearchValue(e.target.value)} />
+                                </form>
                             </div>
                             <div className={`absolute left-0 top-full z-50 pt-7`}>
 
-                                <div className={` ${searchValue.length > 0 ? "opacity-100 visible" : "invisible opacity-0"} ${fixTop ? 'bg-white text-secondary bg-opacity-80' : ' bg-black text-white bg-opacity-80 '} border-1 border-primary rounded-3xl  w-80 p-5 transition-all`}>
+                                <div className={` ${searchValue?.length > 0 && isOpenSearchBox ? "opacity-100 visible" : "invisible opacity-0"} ${fixTop ? 'bg-white text-secondary bg-opacity-80' : ' bg-black text-white bg-opacity-80 '} border-1 border-primary rounded-3xl  w-80 p-5 transition-all`}>
                                     {
                                         productDataFromSearch.length > 0 ? (
                                             productDataFromSearch.map(product => (
@@ -233,7 +241,9 @@ export default function NavBar({ isLogin }) {
                                 </div>
                             </div>
                         </div>
-                    <input type="text" placeholder='جستوجو...' className='xl:hidden border-1 border-primary rounded-3xl p-3 bg-secondary outline-none w-full' value={searchValue} onChange={(e) => setSearchValue(e.target.value)} />
+                        <form onSubmit={goToSearchPage} className="w-full xl:w-0 ">
+                            <input type="text" placeholder='جستوجو...' className='xl:hidden border-1 border-primary rounded-3xl p-3 bg-secondary outline-none w-full' value={searchValue} onChange={(e) => setSearchValue(e.target.value)} />
+                        </form>
                         <div className=" flex flex-col xl:flex-row gap-3 w-full">
                             <NavBarLink route={'/'} text={'صفحه اصلی'} />
                             <NavBarLink route={'/shop'} text={'فروشگاه'} />
