@@ -20,13 +20,23 @@ module.exports = {
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
       animation: {
-        'toBottomFromTop': 'toBottomFromTop 0.9s linear infinite',
+        'nudgeMouse': 'nudgeMouse 2.4s cubic-bezier(0.000,0.000,0.725,1.000) infinite',
+        'trackBallSlide': 'trackBallSlide 2.4s cubic-bezier(0.000,0.000,0.725,1.000) infinite',
       },
       keyframes: {
-        toBottomFromTop: {
-          '49%' : {opacity: '0', transform: 'translateY(10px)' },
-          '50%' : { opacity: '0', transform: 'translateY(-100%)' },
-          '51%' : { opacity: '0' },
+        nudgeMouse: {
+          '0%' : {transform: 'translateY(0)' },
+          '45%' : {transform: 'translateY(8px)' },
+          '65%' : {transform: 'translateY(0)' },
+          '100%' : {transform: 'translateY(0)' },
+        },
+        trackBallSlide: {
+          '0%' : { opacity: '1',transform: 'scaleY(0)', transform: 'translateY(-12px)' },
+          '45%' : { opacity: '0',transform: 'scaleY(0.5)', transform: 'translateY(12px)' },
+          '46%' : { opacity: '0',transform: 'scaleY(0.5)', transform: 'translateY(12px)' },
+          '65%' : { opacity: '0',transform: 'scaleY(1)', transform: 'translateY(-12px)' },
+          '100%' : { opacity: '1',transform: 'scaleY(1)', transform: 'translateY(-12px)' },
+
         },
       }
     },
