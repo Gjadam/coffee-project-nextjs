@@ -15,6 +15,7 @@ import connectToDB from '@/configs/db'
 import TicketModel from '@/models/Ticket'
 import UserModel from '@/models/User'
 import ProductModel from '@/models/Product'
+import OrderModel from '@/models/Order'
 
 export default async function P_Admin() {
 
@@ -23,6 +24,8 @@ export default async function P_Admin() {
   const tickets = await TicketModel.find({isAnswer: false}).lean()
   const users = await UserModel.find({}).lean()
   const products = await ProductModel.find({}).lean()
+  const orders = await OrderModel.find({}).lean()
+
 
   return (
     <AdminPanelLayout>
@@ -33,7 +36,7 @@ export default async function P_Admin() {
         <InfoBox title={'مجموع محصولات سایت'} count={products.length}>
           <HiOutlineShoppingBag />
         </InfoBox>
-        <InfoBox title={'مجموع سفارشات'} count={10}>
+        <InfoBox title={'مجموع سفارشات'} count={orders.length}>
           <HiOutlineShoppingBag />
         </InfoBox>
         <InfoBox title={'مجموع کاربرهای سایت'} count={users.length}>

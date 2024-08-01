@@ -11,6 +11,7 @@ import Factor from './Factor'
 // SweetAlert
 import Swal from 'sweetalert2'
 import toastAlert from '@/utils/toastAlert'
+import Alert from '@/components/modules/Alert/Alert'
 
 export default function Cart() {
     const [cart, setCart] = useState([]);
@@ -42,12 +43,12 @@ export default function Cart() {
         })
         if (res.status === 404) {
             toastAlert.fire({
-                title: "کد تخفیف وارد شده معتبر نیست!",
+                text: "کد تخفیف وارد شده معتبر نیست!",
                 icon: "error",
             })
         } else if (res.status === 422) {
             toastAlert.fire({
-                title: "کد تخفیف منقضی شده!",
+                text: "کد تخفیف منقضی شده!",
                 icon: "error",
                 confirmButtonText: "تلاش مجدد"
             })
@@ -56,7 +57,7 @@ export default function Cart() {
             const newPrice = totalPrice - (totalPrice * discountCode.percent) / 100
             setTotalPrice(newPrice)
             toastAlert.fire({
-                title: "کد تخفیف با موفقیت اعمال شد.",
+                text: "کد تخفیف با موفقیت اعمال شد.",
                 icon: "success",
             }).then(() => {
                 setDiscount("")
@@ -70,9 +71,13 @@ export default function Cart() {
             <div className="container mx-auto flex justify-center items-start flex-col xl:flex-row gap-10 my-20 p-5">
                 <div className=" w-full xl:w-4/5 flex flex-col gap-5">
                     {
-                        cart.map((cart) => (
-                            <Box key={cart.id} {...cart} />
-                        ))
+                        cart.length > 0 ? (
+                            cart.map((cart) => (
+                                <Box key={cart.id} {...cart} />
+                            ))
+                        ) : (
+                            <Alert title={"سبد خرید خالیه!"} text={"هنوز هیچ محصولی به سبد خرید اضافه نشده"} buttonText={"فروشگاه"} route={'/shop'}/>
+                        )
                     }
                     <div className="relative flex justify-center items-end w-full xl:w-96">
                         <FormInput type={'text'} value={discount} onChange={(e) => setDiscount(e.target.value)} placeholder={'کد تخفیف'} />
@@ -82,7 +87,7 @@ export default function Cart() {
                     </div>
                 </div>
                 <div className=" w-full xl:w-1/3">
-                    <Factor totalPrice={totalPrice} />
+                    <Factor totalPrice={totalPrice} cart={cart} />
                 </div>
             </div>
         </>

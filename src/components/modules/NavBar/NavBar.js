@@ -28,11 +28,17 @@ export default function NavBar({ isLogin, searchParam }) {
 
     const [fixTop, setFixTop] = useState(false)
 
+    const [cartCount, setCartCount] = useState(0)
     const [isOpenSearchBox, setIsOpenSearchBox] = useState(false)
     const [searchValue, setSearchValue] = useState(searchParam)
     const [productDataFromSearch, setProductDataFromSearch] = useState([])
 
     const [openSidebar, setOpenSideBar] = useState(false)
+
+    useEffect(() => {
+        const cart = JSON.parse(localStorage.getItem("cart")) || [];
+        setCartCount(cart.length)
+    }, [])
 
     useEffect(() => {
         if (searchValue && searchValue.trim()) {
@@ -101,8 +107,14 @@ export default function NavBar({ isLogin, searchParam }) {
                 <div className=' flex justify-center items-center xl:gap-20  '>
                     <div className=" hidden xl:flex justify-center items-center gap-5 text-xl relative after:absolute after:-left-10 after:w-[1px] after:h-14 after:bg-primary ">
                         <Link href={'/cart'}>
-                            <div className=" p-3 border-1 border-primary rounded-full bg-opacity-5 bg-white hover:bg-primary transition-colors">
+                            <div className="relative p-3 border-1 border-primary rounded-full bg-opacity-5 bg-white hover:bg-primary transition-colors">
                                 <HiOutlineShoppingCart className="" />
+                                {
+                                    cartCount > 0 &&
+                                    <div className=" absolute -right-0.5 -top-0.5 flex justify-center items-center overflow-hidden w-4 h-4 rounded-full  border-1 border-primary bg-red-500 text-white text-xs">
+                                        <span>{cartCount}</span>
+                                    </div>
+                                }
                             </div>
                         </Link>
                         <div className="relative">
@@ -122,19 +134,22 @@ export default function NavBar({ isLogin, searchParam }) {
                             </div>
                             <div className={`absolute left-0 top-full z-50 pt-7`}>
 
-                                <div className={` ${searchValue?.length > 0 && isOpenSearchBox ? "opacity-100 visible" : "invisible opacity-0"} ${fixTop ? 'bg-white text-secondary bg-opacity-80' : ' bg-black text-white bg-opacity-80 '} border-1 border-primary rounded-3xl  w-80 p-5 transition-all`}>
+                                <div className={` ${searchValue?.length > 0 && isOpenSearchBox ? "opacity-100 visible" : "invisible opacity-0"} ${fixTop ? 'bg-white text-secondary bg-opacity-80' : ' bg-black text-white bg-opacity-80 '} border-1 border-primary rounded-3xl  w-96 p-5 transition-all`}>
                                     {
                                         productDataFromSearch.length > 0 ? (
                                             productDataFromSearch.map(product => (
                                                 <Link href={`/product/${product._id}`}>
                                                     <div className=" flex justify-between items-center flex-row-reverse hover:bg-primary hover:bg-opacity-70 rounded-xl p-2 transition-colors overflow-hidden">
+                                                      <div className=" w-16 h-16 overflow-hidden rounded-xl">
                                                         <Image
                                                             src={product.img}
                                                             alt="primary-logo"
-                                                            width={60}
+                                                            width={0}
                                                             height={0}
-                                                            className=" rounded-xl"
+                                                            sizes="100%"
+                                                            className=" w-full h-full object-cover "
                                                         />
+                                                      </div>
                                                         <span className=" text-sm">{product.name}</span>
                                                         <span className=" text-sm">
                                                             {product.price?.toLocaleString()}
@@ -233,9 +248,17 @@ export default function NavBar({ isLogin, searchParam }) {
                                 height={0}
                             />
                             <div className=" flex items-center gap-3">
-                                <div className=" p-3 border-1 border-primary rounded-full bg-opacity-5 bg-white hover:bg-primary transition-colors">
-                                    <IoMoonOutline className=" text-xl" />
-                                </div>
+                                <Link href={'/cart'}>
+                                    <div className="relative p-3 border-1 border-primary rounded-full bg-opacity-5 bg-white hover:bg-primary transition-colors">
+                                        <HiOutlineShoppingCart className=" text-xl" />
+                                        {
+                                            cartCount > 0 &&
+                                            <div className=" absolute -right-0.5 -top-0.5 flex justify-center items-center overflow-hidden w-4 h-4 rounded-full  border-1 border-primary bg-red-500 text-white text-xs">
+                                                <span>{cartCount}</span>
+                                            </div>
+                                        }
+                                    </div>
+                                </Link>
                                 <div className=" p-3 border-1 border-primary rounded-full bg-opacity-5 bg-white hover:bg-red-500 hover:border-red-500 transition-colors" onClick={() => setOpenSideBar(false)}>
                                     <LiaTimesSolid className=" text-xl" />
                                 </div>

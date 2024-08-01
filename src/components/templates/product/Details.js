@@ -9,12 +9,13 @@ import Tag from '../../modules/Tag/Tag'
 import QuantityCounter from '@/components/modules/QuantityCounter/QuantityCounter'
 
 // SweetAlert
-import Swal from 'sweetalert2'
 import toastAlert from '@/utils/toastAlert'
+import { useRouter } from 'next/navigation'
 
 
 export default function Details({ product, userID }) {
 
+    const router = useRouter()
     const [count, setCount] = useState(1)
     const [isActiveWishlist, setIsActiveWishlist] = useState(false)
 
@@ -57,7 +58,7 @@ export default function Details({ product, userID }) {
                 });
                 localStorage.setItem("cart", JSON.stringify(cart));
                 toastAlert.fire({
-                    title: "محصول با موفقیت به سبد خرید اضافه شد.",
+                    text: "محصول با موفقیت به سبد خرید اضافه شد.",
                     icon: "success",
                 })
             } else {
@@ -72,7 +73,7 @@ export default function Details({ product, userID }) {
 
                 localStorage.setItem("cart", JSON.stringify(cart));
                 toastAlert.fire({
-                    title: "محصول با موفقیت به سبد خرید اضافه شد.",
+                    text: "محصول با موفقیت به سبد خرید اضافه شد.",
                     icon: "success",
                 })
             }
@@ -88,10 +89,11 @@ export default function Details({ product, userID }) {
 
             localStorage.setItem("cart", JSON.stringify(cart));
             toastAlert.fire({
-                title: "محصول با موفقیت به سبد خرید اضافه شد.",
+                text: "محصول با موفقیت به سبد خرید اضافه شد.",
                 icon: "success",
             })
         }
+        router.refresh()
     };
     return (
         <div className="flex flex-col gap-5  w-full md:w-1/2 ">

@@ -18,7 +18,7 @@ import connectToDB from '@/configs/db'
 import TicketModel from '@/models/Ticket'
 import CommentModel from '@/models/Comment'
 import WishlistModel from '@/models/Wishlist'
-
+import OrderModel from '@/models/Order'
 
 export default async function P_user() {
   connectToDB()
@@ -27,10 +27,16 @@ export default async function P_user() {
     .populate('department', 'title')
     .limit(4)
     .sort({ _id: -1 })
+    
+  const orders = await OrderModel.find({ user: user._id }, "-__v")
+    .limit(4)
+    .sort({ _id: -1 })
+
 
   const allTickets = await TicketModel.find({ user: user._id })
   const allComments= await CommentModel.find({ user: String(user._id)})
   const allWishes = await WishlistModel.find({ user: user._id })
+  const allOrders= JSON.parse(JSON.stringify(orders))
 
   return (
     <div className=' '>
@@ -43,7 +49,7 @@ export default async function P_user() {
             <InfoBox title={'مجموع کامنت ها'} count={allComments.length}>
               <IoChatbubblesOutline />
             </InfoBox>
-            <InfoBox title={'مجموع سفارشات '} count={10}>
+            <InfoBox title={'مجموع سفارشات '} count={allOrders.length}>
               <HiOutlineShoppingBag />
             </InfoBox>
             <InfoBox title={'مجموع علاقه مندی ها'} count={allWishes.length}>
@@ -63,7 +69,7 @@ export default async function P_user() {
                   tickets.length > 0 ? (
                     tickets.map(ticket => (
                       <Link href={`/p-user/tickets/answer/${ticket._id}`}>
-                        <Cart key={ticket._id} title={ticket.title} date={ticket.createdAt} condition={ticket.hasAnswer} support={ticket.department.title} />
+                        <Cart key={ticket._id} title={ticket.title} date={ticket.createdAt} ticketCondition={ticket.hasAnswer} support={ticket.department.title} />
                       </Link>
                     ))
                   ) : (
@@ -75,13 +81,20 @@ export default async function P_user() {
             <div className="bg-white text-secondary p-5 w-full rounded-2xl">
               <div className=" flex justify-between items-center border-b-1  text-xl pb-3">
                 <span>سفارش های اخیر</span>
+                <Link href='/p-user/orders'>
                 <Button type={'simple'} text={'همه سفارش ها'} />
+                </Link>
               </div>
               <div className="mt-5">
-                <Cart title={"قهوه روبوستا"} date={"1403/09/20"} price={"140,000"} condition={'تکمیل شده'} />
-                <Cart title={"قهوه روبوستا"} date={"1403/09/20"} price={"140,000"} condition={'تکمیل شده'} />
-                <Cart title={"قهوه روبوستا"} date={"1403/09/20"} price={"140,000"} condition={'تکمیل شده'} />
-                <Cart title={"قهوه روبوستا"} date={"1403/09/20"} price={"140,000"} condition={'تکمیل شده'} />
+              {
+                  allOrders.length > 0 ? (
+                    allOrders.map(order => (
+                      <Cart key={order._id} title={order._id} price={order.totalPrice} date={order.createdAt} orderCondition={true}  />
+                  ))
+                  ) : (
+                    <Alert title={"سفارشی وجود ندارد"} text={"هنوز هیچ سفارشی ثبت نشده است!"} buttonText={'برگشت به فروشگاه'} route={'/shop'} />
+                  )
+                }
               </div>
             </div>
           </div>

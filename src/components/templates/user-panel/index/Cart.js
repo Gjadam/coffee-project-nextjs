@@ -1,5 +1,5 @@
 
-export default function Cart({ title, date, support, price, condition }) {
+export default function Cart({ title, date, support, price, ticketCondition, orderCondition }) {
     return (
         <div className="">
             <div className=" flex justify-between items-center flex-wrap gap-3 p-4 hover:bg-gray-100 rounded-xl transition-colors  ">
@@ -26,7 +26,14 @@ export default function Cart({ title, date, support, price, condition }) {
 
                         ) : null
                     }
-                    <span className={` flex-grow w-24 text-center ${condition ? 'bg-green-500' : 'bg-red-500'} rounded-md p-2`}>{condition ? "پاسخ داده شده" : "پاسخ داده نشده"}</span>
+                    {
+                        ticketCondition &&
+                        <span className={` flex-grow w-24 text-center ${ticketCondition ? 'bg-green-500' : 'bg-red-500'} rounded-md p-2`}>{ticketCondition ? "پاسخ داده شده" : "پاسخ داده نشده"}</span>
+                    }
+                    {
+                        orderCondition &&
+                        <span className={` flex-grow w-24 text-center ${orderCondition ? 'bg-green-500' : 'bg-red-500'} rounded-md p-2`}>{orderCondition ? "ثبت شده" : "ثبت نشده"}</span>
+                    }
                 </div>
             </div>
         </div>

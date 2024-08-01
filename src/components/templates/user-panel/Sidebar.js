@@ -113,7 +113,7 @@ export default function Sidebar({ userInfos }) {
                     <SideBarLink route={'/p-user'} text='پیشخوان'>
                         <IoHome className='text-xl' />
                     </SideBarLink>
-                    <SideBarLink route={'/'} text='سفارش ها'>
+                    <SideBarLink route={'/p-user/orders'} text='سفارش ها'>
                         <IoBasket className='text-xl' />
                     </SideBarLink>
                     <SideBarLink route={'/p-user/tickets'} text='تیکت های پشتیبانی'>
