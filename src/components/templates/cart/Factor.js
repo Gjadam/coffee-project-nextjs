@@ -9,7 +9,10 @@ import Select from "react-select";
 
 // State Options
 import stateData from "@/utils/stateData";
+// SweetAlert
 import Swal from "sweetalert2";
+import toastAlert from "@/utils/toastAlert";
+
 const stateOptions = stateData();
 
 export default function Factor({ totalPrice, cart }) {
@@ -45,6 +48,11 @@ export default function Factor({ totalPrice, cart }) {
                     router.refresh()
                 }
                 localStorage.removeItem("cart")
+            })
+        } else if(res.status === 401) {
+            toastAlert.fire({
+                text: "برای فرایند تکمیل خرید ابتدا باید لاگین کنید.",
+                icon: "error",
             })
         }
     }

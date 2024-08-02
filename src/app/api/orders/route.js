@@ -9,6 +9,12 @@ export async function POST(req) {
         const body = await req.json()
         const { cart, totalPrice } = body
 
+        if(!user) {
+            return Response.json(
+                { message: "Please login first !" },
+                { status: 401 }
+            )
+        }
 
         if (!cart || !totalPrice) {
             return Response.json(
