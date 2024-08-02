@@ -4,7 +4,7 @@ import { useState } from "react";
 
 export default function PaginationControls({ items, setShowItems }) {
 
-    const [page, setPage] = useState()
+    const [page, setPage] = useState(1)
     const paginateHandler = (e, page) => {
 
         e.preventDefault()
