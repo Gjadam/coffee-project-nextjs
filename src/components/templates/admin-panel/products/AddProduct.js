@@ -61,7 +61,7 @@ export default function AddProduct() {
 
       if (res.status === 201) {
         toastAlert.fire({
-          title: "محصول موردنظر با موفقیت ایجاد شد.",
+          text: "محصول موردنظر با موفقیت ایجاد شد.",
           icon: "success",
         }).then(() => {
           router.refresh()

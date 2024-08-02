@@ -60,7 +60,7 @@ export default function Tabs({ product }) {
         })
         if (res.status === 201) {
             toastAlert.fire({
-                title: "کامنت با موفقیت ایجاد شد.",
+                text: "کامنت با موفقیت ایجاد شد.",
                 icon: "success",
             })
             setUsername('')

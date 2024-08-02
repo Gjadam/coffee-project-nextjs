@@ -43,17 +43,17 @@ export default function Sms({ phone, showLoginWithOtp, backToFirstPageName }) {
         })
         if (res.status === 409) {
             toastAlert.fire({
-                title: "کد وارد شده معتبر نیست.",
+                text: "کد وارد شده معتبر نیست.",
                 icon: "error",
             })
         } else if (res.status === 410) {
             toastAlert.fire({
-                title: "کد وارد شده منقضی شده.",
+                text: "کد وارد شده منقضی شده.",
                 icon: "error",
             })
         } else if (res.status === 200) {
             toastAlert.fire({
-                title: `${backToFirstPageName === 'ثبتنام' ? "ثبتنام شما با موفقیت انجام شد." : "با موفقیت وارد شدید."}`,
+                text: `${backToFirstPageName === 'ثبتنام' ? "ثبتنام شما با موفقیت انجام شد." : "با موفقیت وارد شدید."}`,
                 icon: "success",
             }).then(() => {
                 router.replace('/')

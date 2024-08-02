@@ -33,7 +33,7 @@ export default function AddDiscount() {
 
         if (res.status === 201) {
             toastAlert.fire({
-                title: "کد تخفیف با موفقیت ایجاد شد.",
+                text: "کد تخفیف با موفقیت ایجاد شد.",
                 icon: "success",
             })
             setCode("")

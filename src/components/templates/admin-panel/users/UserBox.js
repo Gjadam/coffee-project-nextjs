@@ -32,7 +32,7 @@ export default function UserBox({ _id, name, email, role, phone }) {
                 })
                 if (res.status === 200) {
                     toastAlert.fire({
-                        title: "تغییر سطح با موفقیت انجام شد.",
+                        text: "تغییر سطح با موفقیت انجام شد.",
                         icon: "success",
                     })
                     router.refresh()
@@ -56,7 +56,7 @@ export default function UserBox({ _id, name, email, role, phone }) {
                 })
                 if (res.status === 200) {
                     toastAlert.fire({
-                        title: "کاربر مورد نظر با موفقیت حذف شد",
+                        text: "کاربر مورد نظر با موفقیت حذف شد",
                         icon: "success",
                     })
                     router.refresh()
@@ -86,7 +86,7 @@ export default function UserBox({ _id, name, email, role, phone }) {
                 })
                 if (res.status === 200) {
                     toastAlert.fire({
-                        title: "کاربر مورد نظر با موفقیت بن شد",
+                        text: "کاربر مورد نظر با موفقیت بن شد",
                         icon: "success",
                         confirmButtonText: "باشه",
                     })
@@ -140,7 +140,7 @@ export default function UserBox({ _id, name, email, role, phone }) {
                                 })
                                 if (res.status === 200) {
                                     toastAlert.fire({
-                                        title: "اطلاعات کاربر مورد نظر با موفقیت تغییر یافت",
+                                        text: "اطلاعات کاربر مورد نظر با موفقیت تغییر یافت",
                                         icon: "success",
                                     })
                                     router.refresh()

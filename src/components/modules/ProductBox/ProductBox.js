@@ -12,6 +12,7 @@ import { HiOutlineShoppingCart } from "react-icons/hi2";
 // SweetAlert
 import toastAlert from '@/utils/toastAlert';
 import { useRouter } from 'next/navigation';
+import Loading from '../Loading/Loading';
 
 export default function ProductBox({ _id, name, price, shortDescription, score, img }) {
 

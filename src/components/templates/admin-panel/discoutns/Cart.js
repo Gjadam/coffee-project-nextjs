@@ -24,7 +24,7 @@ export default function Cart({ _id, code, percent, maxUse, uses }) {
                 })
                 if (res.status === 200) {
                     toastAlert.fire({
-                        title: "کد تخفیف موردنظر با موفقیت حذف شد.",
+                        text: "کد تخفیف موردنظر با موفقیت حذف شد.",
                         icon: "success",
                         confirmButtonText: "بله"
                     })

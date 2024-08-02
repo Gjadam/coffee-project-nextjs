@@ -47,7 +47,7 @@ export default function Cart({ _id, user, title, body, department, subDepartment
                 })
                 if (res.status === 201) {
                     toastAlert.fire({
-                        title: "پاسخ مورد نظر با موفقیت ثبت شد.",
+                        text: "پاسخ مورد نظر با موفقیت ثبت شد.",
                         icon: "success",
                     })
                     router.refresh()
@@ -77,7 +77,7 @@ export default function Cart({ _id, user, title, body, department, subDepartment
                 })
                 if (res.status === 200) {
                     toastAlert.fire({
-                        title: "کاربر مورد نظر با موفقیت بن شد",
+                        text: "کاربر مورد نظر با موفقیت بن شد",
                         icon: "success",
                     })
                     router.refresh()

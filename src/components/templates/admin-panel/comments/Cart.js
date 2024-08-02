@@ -34,7 +34,7 @@ export default function Cart({ _id, username, email, body, score, isAccept, prod
                 })
                 if (res.status === 200) {
                     toastAlert.fire({
-                        title: "کامنت موردنظر با موفقیت حذف شد.",
+                        text: "کامنت موردنظر با موفقیت حذف شد.",
                         icon: "success",
                         confirmButtonText: "باشه"
                     })
@@ -65,7 +65,7 @@ export default function Cart({ _id, username, email, body, score, isAccept, prod
                 })
                 if (res.status === 200) {
                     toastAlert.fire({
-                        title: "کاربر مورد نظر با موفقیت بن شد",
+                        text: "کاربر مورد نظر با موفقیت بن شد",
                         icon: "success",
                     })
                     router.refresh()
@@ -84,7 +84,7 @@ export default function Cart({ _id, username, email, body, score, isAccept, prod
         })
         if (res.status === 200) {
             toastAlert.fire({
-                title: "کامنت مورد نظر با موفقیت تایید شد",
+                text: "کامنت مورد نظر با موفقیت تایید شد",
                 icon: "success",
             }).then(() => {
                 router.refresh();
@@ -114,7 +114,7 @@ export default function Cart({ _id, username, email, body, score, isAccept, prod
                 })
                 if (res.status === 201) {
                     toastAlert.fire({
-                        title: "پاسخ مورد نظر با موفقیت ثبت شد.",
+                        text: "پاسخ مورد نظر با موفقیت ثبت شد.",
                         icon: "success",
                     })
                     router.refresh()
@@ -133,7 +133,7 @@ export default function Cart({ _id, username, email, body, score, isAccept, prod
         })
         if (res.status === 200) {
             toastAlert.fire({
-                title: "کامنت مورد نظر با موفقیت رد شد",
+                text: "کامنت مورد نظر با موفقیت رد شد",
                 icon: "success",
                 confirmButtonText: "باشه",
             }).then(() => {

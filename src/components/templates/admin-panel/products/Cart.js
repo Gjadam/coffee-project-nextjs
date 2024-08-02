@@ -35,7 +35,7 @@ export default function Cart({ _id, name, price, score, weight, smell, suitableF
                 })
                 if (res.status === 200) {
                     toastAlert.fire({
-                        title: "محصول موردنظر با موفقیت حذف شد.",
+                        text: "محصول موردنظر با موفقیت حذف شد.",
                         icon: "success",
                         confirmButtonText: "باشه",
                     }).then(() => {

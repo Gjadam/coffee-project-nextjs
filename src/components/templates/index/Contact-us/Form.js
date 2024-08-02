@@ -33,7 +33,7 @@ export default function Form() {
         })
         if(res.status === 201) {
             toastAlert.fire({
-                title: "پیغام شما با موفقیت ارسال شد.",
+                text: "پیغام شما با موفقیت ارسال شد.",
                 icon: "success",
             })
             setName("")

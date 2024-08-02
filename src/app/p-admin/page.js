@@ -9,6 +9,7 @@ import GrowthChart from '@/components/templates/admin-panel/index/GrowthChart'
 import { FaUsers } from 'react-icons/fa'
 import { HiOutlineShoppingBag } from 'react-icons/hi2'
 import { IoTicketOutline } from 'react-icons/io5'
+import { AiOutlineShoppingCart } from "react-icons/ai";
 
 // Backend
 import connectToDB from '@/configs/db'
@@ -37,7 +38,7 @@ export default async function P_Admin() {
           <HiOutlineShoppingBag />
         </InfoBox>
         <InfoBox title={'مجموع سفارشات'} count={orders.length}>
-          <HiOutlineShoppingBag />
+          <AiOutlineShoppingCart />
         </InfoBox>
         <InfoBox title={'مجموع کاربرهای سایت'} count={users.length}>
           <FaUsers />
